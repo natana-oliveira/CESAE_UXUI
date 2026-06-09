@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <script src="../js/exs.js" defer></script>
+  </head>
+  <body>
+    <h2>Calculadora</h2>
+    <input type="number" id="num1" />
+    <select id="operator">
+      <option value="">-- Choose an option --</option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="num2" />
+    <button onclick="calc()">=</button>
+    <p>Total: <span id="total">0</span></p>
+  </body>
+</html>

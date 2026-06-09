@@ -1,0 +1,93 @@
+body {
+  width: 80%;
+  margin: 0 auto;
+  background-color: aliceblue;
+}
+
+#banner {
+  width: 100%;
+}
+
+img.square {
+  width: 400px;
+  object-fit: cover;
+  height: 400px;
+}
+
+#toc {
+  background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  display: table;
+  padding: 1em;
+}
+
+#toc a {
+  text-decoration: none;
+}
+
+.tocnumber {
+  color: black;
+}
+
+.purple {
+  color: #561e8f;
+}
+
+.border {
+  border: 3px solid greenyellow;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.myPhotoImg {
+  width: 55px;
+  height: 55px;
+}
+
+.classListTest {
+  background-color: #561e8f;
+  border: 10px solid black;
+  margin: 5px;
+}
+
+.night {
+  background-color: black;
+  color: white;
+}
+
+.day {
+  background-color: white;
+  color: black;
+}
+
+/* button {
+  background-color: rgb(133, 146, 212);
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 15px;
+  border: none;
+  box-shadow: 5px 5px #3129380e;
+}
+
+button:hover {
+  background-color: rgb(71, 84, 153);
+  color: white;
+} */
+
+.btn-day {
+  background-color: #561e8f;
+  font-size: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-night {
+  background-color: aquamarine;
+  font-size: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+}

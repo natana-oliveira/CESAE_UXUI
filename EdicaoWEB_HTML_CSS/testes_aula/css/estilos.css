@@ -1,0 +1,373 @@
+/* @font-face {
+  font-family: "Ubuntu";
+  src: url(/fontes/Ubuntu-Bold.ttf) format(truetype);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(/fontes/Ubuntu-Italic.ttf) format(truetype);
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(/fontes/Ubuntu-Light.ttf) format(truetype);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(/fontes/Ubuntu-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(/fontes/Ubuntu-Regular.ttf) format(truetype);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NovaOval";
+  src: url(/fontes/NovaOval-Regular.ttf);
+} */
+/* 
+.bloco {
+  width: 100px;
+  height: 100px;
+  margin: 1px;
+  border: 8px solid blue;
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+  margin: 0;
+  padding: 0;
+} */
+
+/* EXERCICIO 1 - OPÇÃO 1   
+#b1,
+#b2 {
+  float: left;
+}
+#b3 {
+  clear: both;
+}
+#b3,
+#b4 {
+  float: left;
+}
+#b5 {
+  clear: both;
+}
+#b5,
+#b6 {
+  float: left;
+}
+
+*/
+
+/* EXERCICIO 2  */
+/* 
+#b2,
+#b3 {
+  float: left;
+}
+
+#b4 {
+  clear: both;
+}
+#b4,
+#b5,
+#b6 {
+  float: left;
+} */
+
+/* #b1,
+#b2,
+#b3 {
+  float: left;
+}
+
+#b4,
+#b5,
+#b6,
+#b7 {
+  float: right;
+} */
+
+/* .teste {
+  background-color: aquamarine;
+  overflow: hidden;
+}
+
+.pteste {
+  float: left;
+} */
+
+/* 
+header {
+  background-color: #111111;
+}
+
+.logo {
+  height: 100px;
+}
+
+.nav-link {
+  display: inline;
+  padding: 10px;
+}
+
+.esquerda,
+.direita {
+  width: 45%;
+  float: left;
+}
+
+a {
+  color: rgb(19, 28, 35);
+}
+.amarelo {
+  background-color: yellow;
+}
+.vermelho {
+  background-color: red;
+}
+.rosa {
+  background-color: rgb(254, 97, 171);
+}
+.roxo {
+  background-color: purple;
+}
+.verde {
+  background-color: green;
+}
+.azul {
+  background-color: blue;
+}
+
+.block1 {
+  background-color: purple;
+}
+.block2 {
+  background-color: green;
+}
+.block3 {
+  background-color: rgb(138, 138, 255);
+} */
+
+/* 
+.nav-link {
+  color: #d8cfca;
+  font-size: 20px;
+  font-family: "NovaOval";
+  font-weight: 400;
+  font-style: normal;
+}
+.padding15 {
+  padding: 15px;
+}
+.margin5 {
+  margin: 5px;
+}
+
+
+
+body {
+  background-color: #f4e3cf;
+}
+
+
+
+
+.colorGold {
+  color: #c0854d;
+}
+.secondary-heading {
+  color: #280057;
+  font-size: 40px;
+  font-family: "NovaOval";
+}
+
+.terciary-heading {
+  color: #c0854d;
+  font-size: 26px;
+  font-family: "NovaOval";
+}
+
+.quartenary-heading {
+  color: #280057;
+  font-size: 20px;
+  font-family: "NovaOval";
+}
+
+.list {
+  font-family: "Ubuntu";
+  font-size: 16px;
+  padding: 0 50px;
+}
+p {
+  color: #21007a;
+  font-family: "Ubuntu";
+  font-size: 16px;
+  padding: 0 50px;
+}
+
+.baralhos {
+  margin: 15px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.negrito {
+  font-weight: 500;
+}
+
+.paragraph18 {
+  font-size: 18px;
+}
+
+.paragraphJustify {
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  text-align: center;
+  border-width: 2px;
+  border-color: #280057;
+  border-style: solid;
+}
+th,
+td {
+  padding: 10px;
+  color: #280057;
+}
+th {
+  background-color: #cbb39d;
+}
+
+input {
+  margin-bottom: 25px;
+}
+
+input,
+textarea {
+  border: 1px solid #280057;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.inputText {
+  width: 30%;
+}
+
+label {
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-size: 18px;
+  color: #21007a;
+  padding-bottom: 55px;
+}
+
+input[type="checkbox"] {
+  background-color: #280057;
+  color: #cbb39d;
+}
+
+input[type="submit"] {
+  background-color: #7700ff;
+  color: #cbb39d;
+  width: 15%;
+  margin: 25px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.labelficheiro {
+  border: 1px solid #280057;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: #280057;
+}
+
+.caixas {
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #280057;
+}
+
+span {
+  color: #7700ff;
+  margin: 500px;
+  display: block;
+} */
+/* 
+@media (max-width: 1200px) {
+  p {
+    color: rgb(169, 112, 218);
+    font-size: 14px;
+  }
+  .p1 {
+    color: blueviolet;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+
+  p {
+    color: blue;
+    font-size: 14px;
+  }
+  .p1 {
+    color: rgb(21, 5, 109);
+    font-size: 16px;
+  }
+} */
+
+/* .internal {
+  background-color: blueviolet;
+  width: 280px;
+  margin: 10px;
+  float: left;
+}
+
+.imageTest {
+  max-width: 80%;
+} */
+
+main {
+  border: 5px dotted blue;
+  display: grid;
+  height: 700px;
+  grid-template-columns: 20% 20% 10% 20% 30%;
+}
+
+div {
+  background-color: rgb(205, 152, 255);
+  border: 2px dotted rgb(255, 0, 0);
+  color: azure;
+  font-size: 20px;
+}

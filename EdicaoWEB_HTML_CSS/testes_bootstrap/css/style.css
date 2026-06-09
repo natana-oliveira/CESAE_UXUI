@@ -1,0 +1,95 @@
+.cont1 {
+  border: 2px solid rgb(0, 0, 0);
+}
+.myContainer {
+  background-color: rgb(237, 215, 188);
+}
+
+.myContainer2 {
+  background-color: rgb(188, 198, 237);
+}
+
+.myContainerFluid {
+  background-color: rgb(165, 211, 189);
+}
+
+.myCol {
+  border: 5px dotted rgb(228, 131, 13);
+}
+
+.myCol2 {
+  border: 5px dotted rgb(1, 169, 88);
+}
+
+.btn-danger {
+  background-color: blueviolet;
+}
+
+.imgCard {
+  border-radius: 14px;
+  width: 50px;
+}
+
+.animationTest {
+  height: 30px;
+  width: 10px;
+}
+
+.red {
+  background-color: red;
+  animation: animaRed 10s forwards;
+}
+
+/* @keyframes animaRed {
+  from {
+    width: 30px;
+  }
+  to {
+    width: 100px;
+  }
+} */
+
+.green {
+  background-color: green;
+  animation: animaGreen 10s forwards;
+}
+
+/* @keyframes animaGreen {
+  from {
+    width: 30px;
+  }
+  to {
+    width: 200px;
+  }
+} */
+
+.black {
+  background-color: black;
+  animation: animaBlack 10s forwards;
+}
+/* 
+@keyframes animaBlack {
+  from {
+    width: 30px;
+  }
+  to {
+    width: 300px;
+  }
+} */
+
+.animation2 {
+  height: 200px;
+  width: 200px;
+  background-color: rgb(151, 87, 151);
+  border-radius: 70px;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
