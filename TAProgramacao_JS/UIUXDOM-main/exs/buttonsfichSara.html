@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 Buttons!</title>
+    <script src="../js/exficheirosSara2.js" defer></script>
+  </head>
+  <body>
+    <h1>Look At All My Buttons!</h1>
+    <div id="container">
+      <button id="create-bts">Create 100Btns</button>
+      <button id="random-color">Random Color</button>
+      <p>Cor: <span>não atribuída</span></p>
+      <button id="events">events test</button>
+
+      <h6>Calculadora</h6>
+      <input type="number" id="num1" />
+      <select id="operator">
+        <option value="">--Please choose an option--</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="number" id="num2" />
+      <button onclick="calc()">=</button>
+      <p>Total: <span id="total">0</span></p>
+    </div>
+  </body>
+</html>

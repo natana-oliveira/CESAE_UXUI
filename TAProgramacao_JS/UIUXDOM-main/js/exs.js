@@ -1,6 +1,8 @@
 let image = document.getElementById("unicorn");
 let heading = document.getElementById("mainheading");
 
+let randomColorBtn = document.getElementById("random-color");
+
 // console.log(image);
 // console.log(heading);
 
@@ -103,7 +105,7 @@ function createBtns() {
   }
 }
 
-function generateColor(max) {
+function randomColor(max) {
   let container = document.getElementById("container");
 
   let r = Math.floor(Math.random() * max);
@@ -149,4 +151,60 @@ function calc() {
       total.innerText = "Opção inválida";
   }
   total.innerText = result;
+}
+
+let beatlesSong = document.getElementById("beatles");
+
+function twist() {
+  console.log("TWIIISSTTT");
+}
+
+function shout() {
+  console.log("SHHOOOUUTTT");
+}
+
+// beatlesSong.addEventListener("click", twist, { once: true });
+// beatlesSong.addEventListener("click", shout);
+
+// beatlesSong.addEventListener("click", twist);
+// beatlesSong.addEventListener("mouseover", shout);
+
+//SHOPPING
+// selecionar li e tornar clicavel
+let product = document.querySelectorAll("li");
+let myH5 = document.querySelector("h5");
+let total = 0;
+
+function removeItem() {
+  this.remove();
+}
+
+function totalCard() {}
+
+function addProduct() {
+  let productCard = document.createElement("p"); // declarar o elemento que vai ser criado
+
+  productCard.innerText = this.innerText; // criar o elemento
+
+  productCard.addEventListener("click", removeItem);
+  // ao criar o elemento já coloco ele em escuta para poder remover
+
+  let myParent = document.getElementById("carrinho"); // definir onde o elemento vai ser mostrado
+
+  myParent.appendChild(productCard); //mostrar o elemento
+
+  // trocar a cor (this porque vai em cada elemento clicado do array)
+  this.style.color = "red";
+  console.log(this);
+
+  let price = Number(this.querySelector("span").innerText);
+
+  // somar total
+
+  total = total + price;
+  myH5.innerText = "TOTAL: " + total;
+}
+
+for (let element of product) {
+  element.addEventListener("click", addProduct);
 }

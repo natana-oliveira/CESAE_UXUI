@@ -8,6 +8,8 @@ console.log(myBanner);
 let myH1 = document.querySelector("h1");
 console.log(myH1);
 
+let btnChangeMode = document.getElementById("change-mode");
+
 // Encontra todos os elemntos (array)
 // let myH1s = document.querySelectorAll("h1");
 // console.log(myH1s);
@@ -103,3 +105,14 @@ function login() {
   // console.log(myBtn);
   myBtn.style.display = "none";
 }
+
+// DEIXAR O CLIQUE NO JS E NÃO NO HTML (RETIROU O onclick="changeMode()" do html)
+
+// o botão changeMode está em espera a escuta
+btnChangeMode.addEventListener("click", changeMode);
+btnChangeMode.addEventListener("click", function () {
+  alert("botão de modo dia e noite!");
+});
+
+// quando passer o mouse em cima do banner a função changeMode também ativa
+myBanner.addEventListener("mouseover", changeMode);
