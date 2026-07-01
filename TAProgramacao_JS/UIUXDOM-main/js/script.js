@@ -106,13 +106,60 @@ function login() {
   myBtn.style.display = "none";
 }
 
+// ******  EVENTO DE CLIQUE MOUSE ******
+
 // DEIXAR O CLIQUE NO JS E NÃO NO HTML (RETIROU O onclick="changeMode()" do html)
 
 // o botão changeMode está em espera a escuta
-btnChangeMode.addEventListener("click", changeMode);
-btnChangeMode.addEventListener("click", function () {
-  alert("botão de modo dia e noite!");
-});
+
+// DESCOMENTAR
+// btnChangeMode.addEventListener("click", changeMode);
+// btnChangeMode.addEventListener("click", function (event) {
+//   console.log(event);
+//   alert("botão de modo dia e noite!");
+// });
 
 // quando passer o mouse em cima do banner a função changeMode também ativa
-myBanner.addEventListener("mouseover", changeMode);
+
+// DESCOMENTAR
+// myBanner.addEventListener("mouseover", changeMode);
+
+// ******  EVENTO DE TECLADO ******
+
+// A janela fica a escuta até alguem pressionar uma tecla. Quando pressiona, chama a função
+window.addEventListener("keydown", function (event) {
+  // console.log(event);
+
+  if (event.key == "n") {
+    alert("EVENTOS DE TECLADO - TECLA N");
+  }
+  // else {
+  //   alert("Não é a tecla N");
+  // }
+});
+
+// EXERCICIO ZOO formulario
+// formulario a escuta
+
+// 1. Chamar formulario e guardar
+let myForm = document.getElementById("animalFarm");
+
+// 2. Colocar a espera até alguém submeter
+// Quando submete, chama a função
+myForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  //ler os dados dos inputs (lê tudo de uma vez)
+  let formData = new FormData(this);
+  let myUl = document.getElementById("animalList");
+
+  console.log(formData.get("animal"));
+  console.log(formData.get("color"));
+
+  //criar uma lista de animais (li para cada animal)
+  let myLi = document.createElement("li");
+  myLi.innerText = formData.get("animal") + " da cor: " + formData.get("color");
+  myUl.appendChild(myLi);
+
+  this.reset();
+});

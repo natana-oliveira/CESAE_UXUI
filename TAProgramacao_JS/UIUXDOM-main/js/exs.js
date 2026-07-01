@@ -176,6 +176,11 @@ let myH5 = document.querySelector("h5");
 let total = 0;
 
 function removeItem() {
+  console.log(this.innerText);
+
+  total = total - this.innerText;
+  myH5.innerText = "TOTAL: " + total;
+
   this.remove();
 }
 
@@ -197,6 +202,7 @@ function addProduct() {
   this.style.color = "red";
   console.log(this);
 
+  //buscar só o preço do produto (SPAN)
   let price = Number(this.querySelector("span").innerText);
 
   // somar total
@@ -208,3 +214,36 @@ function addProduct() {
 for (let element of product) {
   element.addEventListener("click", addProduct);
 }
+
+// GROCERY
+
+// 1. chamar o form e guardar
+let formGrocery = document.getElementById("myShoppingList");
+
+// 2. colcoar espera
+formGrocery.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  let formData = new FormData(this);
+
+  let groceryList = document.getElementById("groceryList");
+  let itensGrocery = document.createElement("li");
+
+  itensGrocery.innerText =
+    "Produto: " +
+    formData.get("product") +
+    " - Quantidade: " +
+    formData.get("qt");
+  groceryList.appendChild(itensGrocery);
+
+  // --- TABLE ---
+  let groceryTable = document.getElementById("groceryTable");
+  let itensProduct = document.createElement("column-1");
+  let itensQuant = document.createElement("column-2");
+
+  let linha = groceryTable.innerHTML;
+  // console.log("linha");
+  ((itensProduct.innerText = formData.get("product")),
+    (itensQuant.innerText = formData.get("qt")),
+    this.reset());
+});

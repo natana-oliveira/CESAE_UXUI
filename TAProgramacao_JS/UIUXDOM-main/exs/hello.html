@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello</title>
     <script src="../js/exs.js" defer></script>
+    <script src="../js/script.js" defer></script>
   </head>
 
   <body>
@@ -13,6 +14,21 @@
       <p>And Prepare To Have Your Mind Blown</p>
       <button id="hello">Hello</button>
       <button id="goodbye">Goodbye</button>
+
+      <br />
+      <br />
+
+      <h1>ZOO 🐅🦓</h1>
+      <form id="animalFarm" action="/server.js">
+        <!-- ACTION é o caminho para onde vão os dados -->
+        <label for="">Nome do animal:</label>
+        <input type="text" name="animal" /><br />
+        <label for="">Cor: </label>
+        <input type="color" name="color" /><br /><br />
+        <button type="submit">Inserir animal</button>
+      </form>
+
+      <ul id="animalList"></ul>
     </div>
   </body>
 </html>

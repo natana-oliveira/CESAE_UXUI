@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  transition: 0.4s;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+#portfolio {
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.4s;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+#personalizar {
+  margin-top: 5%;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+img {
+  width: 200px;
+  display: block;
+  margin: 10px 0;
+}
+
+button {
+  margin: 5px 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.nightMode {
+  background-color: #111;
+  color: white;
+}
+
+.dayMode {
+  background-color: white;
+  color: black;
+}
+
+form {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfólio Multimédia Dinâmico</title>
+    <link rel="stylesheet" href="./css/exfinal.css" />
+    <script src="./js/exfinal.js" defer></script>
+  </head>
+
+  <body class="dayMode">
+    <div id="portfolio">
+      <h1 id="titulo">Meu Portfólio</h1>
+      <p id="descricao">Sou estudante de Design...</p>
+      <img
+        id="fotoPrincipal"
+        src="https://img.magnific.com/vetores-gratis/desenho-de-designer-grafico-minusculo-com-caneta-grande-na-tela-do-computador-criadores-no-trabalho-mulher-criativa-trabalhando-em-ilustracao-vetorial-plana-de-laptop-conceito-de-design-digital-para-banner-ou-pagina-da-web-de-destino_74855-25342.jpg?semt=ais_hybrid&w=740&q=80"
+      />
+
+      <ul id="listaHobbies">
+        <li>Html & CSS</li>
+        <li>Figma</li>
+        <li>JS</li>
+      </ul>
+
+      <button id="btnTema">Mudar Tema</button><br />
+      <button id="btnImagem">Trocar Imagem</button><br />
+      <button id="btnAdicionarHobby">Adicionar Hobby</button><br />
+      <button id="randomColors">Cor Aleatória</button><br />
+    </div>
+    <div id="personalizar">
+      <h2>Personalizar Portfólio</h2>
+
+      <form id="formPerfil">
+        Nome: <input type="text" name="nome" required /><br /><br />
+        Frase de apresentação:<br />
+        <textarea name="frase" required></textarea><br /><br />
+        Cor favorita: <input type="color" name="cor" /><br /><br />
+        Foto (URL): <input type="url" name="novaFoto" /><br /><br />
+        <button type="submit">Atualizar Portfólio</button>
+      </form>
+      <br /><br /><br /><br /><br />
+      <p>Atualizações do perfil: <span id="contador"></span></p>
+    </div>
+    <button id="resetPage">Reset</button>
+    <br />
+  </body>
+</html>
