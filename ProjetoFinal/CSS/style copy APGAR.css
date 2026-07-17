@@ -1,0 +1,38 @@
+/* ---------- Navbar ---------- */
+body.light .nav-links a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  opacity: 0;
+  background: radial-gradient(
+    120px 60px at var(--x, 50%) var(--y, 50%),
+    rgba(250, 247, 243, 0.3),
+    transparent 70%
+  );
+  transition: opacity 0.35s;
+}
+/* @media (max-width: 760px) {
+  .nav-links {
+    display: none;
+  }
+} */
+
+/* Spark at the center fingertip gap */
+.spark {
+  position: absolute;
+  left: 50%;
+  bottom: 38%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c9a14a;
+  transform: translateX(-50%);
+  opacity: 0;
+  box-shadow: 0 0 32px 12px rgba(201, 161, 74, 0.55);
+  transition: opacity 2s ease 1.8s;
+  z-index: 2;
+}
+.hands-container.in .spark {
+  opacity: 0.85;
+}

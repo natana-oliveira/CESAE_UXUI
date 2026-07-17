@@ -3,50 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- FALTA PREENCHER META -->
-    <!-- <meta name="description" content=" ..... Creative universe: Natana Oliveira — Portfolio " />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content=" ..... " />
-    <meta property="og:image" content=" ..... " />
-    <meta property="og:url" content=" ..... " />
-    <meta property="og:description" content=" ..... " />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" href="./images/favicon.ico" /> -->
-
-    <!-- FALTA FONTE -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./JS/script.js" defer></script>
+    <link rel="stylesheet" href="./css/styleNew3Copy.css" />
+    <script src="./JS/scriptNew3Copy.js" defer></script>
     <title>Natana Oliveira — Portfolio</title>
   </head>
   <body>
     <!-- BACKGROUND -->
     <div class="backgroundPage">
       <!-- Fundo cósmico -->
-      <div id="cosmic-bg">
-        <div class="cloud c1"></div>
-        <div class="cloud c2"></div>
-        <div class="cloud c3"></div>
+      <div id="cosmic-bg" class="pos-fixed inset-0">
+        <div class="cloud pos-absolute br-50 c1"></div>
+        <div class="cloud pos-absolute br-50 c2"></div>
+        <div class="cloud pos-absolute br-50 c3"></div>
       </div>
       <!-- Campo de estrelas -->
-      <div id="stars-bg"></div>
+      <div id="stars-bg" class="pos-fixed inset-0 overflow-hidden"></div>
     </div>
     <!-- NAV BAR -->
-    <nav id="navbar">
-      <div class="logo"><span class="orbit"></span>natana.o</div>
-      <ul class="nav-links">
-        <li><a href="./pages/work.html" data-scroll>Work</a></li>
-        <li><a href="./pages/about.html" data-scroll>About Me</a></li>
-        <li><a href="./pages/contact.html" data-scroll>Contacts</a></li>
+    <nav id="navbar" class="pos-fixed d-flex align-items-center">
+      <div class="logo d-flex align-items-center">
+        <span class="orbit br-50"></span>natana.o
+      </div>
+      <ul class="nav-links d-flex">
+        <li>
+          <a href="./pages/work.html" class="pos-relative overflow-hidden"
+            >Work</a
+          >
+        </li>
+        <li>
+          <a href="./pages/about.html" class="pos-relative overflow-hidden"
+            >About Me</a
+          >
+        </li>
+        <li>
+          <a
+            href="./pages/contact.html"
+            class="pos-relative overflow-hidden"
+            id=""
+            >Contacts</a
+          >
+        </li>
       </ul>
-      <button id="theme-toggle">
+      <button
+        id="theme-toggle"
+        class="d-flex pos-relative overflow-hidden align-items-center justify-content-center br-50"
+      >
         <svg
           id="icon-moon"
           class="theme-icon"
@@ -74,10 +81,13 @@
         </svg>
       </button>
     </nav>
-    <main>
-      <section class="hero" id="hero">
+    <main class="pos-relative">
+      <section
+        id="hero"
+        class="hero d-flex pos-relative align-items-center overflow-hidden flex-column text-center"
+      >
         <!-- Mãos -->
-        <div class="hands-container" id="handsContainer">
+        <div class="hands-container d-flex pos-absolute" id="handsContainer">
           <div class="hand left">
             <img src="./images/hero_leftHand.png" alt="" />
           </div>
@@ -87,19 +97,18 @@
           <!-- Ponto brilhante -->
           <div class="spark"></div>
         </div>
-        <div class="hero-content">
+        <div class="hero-content pos-relative">
           <div class="role">Product & UX/UI Designer</div>
           <h1><em>creative universe</em></h1>
         </div>
-        <div class="scroll-hint">
+        <div
+          class="scroll-hint d-flex pos-absolute flex-column align-items-center"
+        >
           <span class="falling-star"></span>
           <p>Explorar</p>
         </div>
-        <div class="scroll-cue"></div>
+        <div class="scroll-cue pos-absolute"></div>
       </section>
-      <br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br /><br />
