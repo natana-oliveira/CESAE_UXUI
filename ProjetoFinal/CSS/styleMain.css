@@ -1,0 +1,971 @@
+.main-showcase {
+  position: relative;
+  width: 100%;
+  padding-bottom: calc(13% * 2207 / 1440);
+}
+
+.collage {
+  position: relative;
+  width: 100%;
+  min-width: 45rem;
+  aspect-ratio: 1440 / 2207;
+}
+
+.collage > * {
+  position: absolute;
+}
+/* Garante que um painel aberto (mensagem/menu) fica sempre por cima de
+   qualquer peça vizinha da colagem, independentemente da ordem no HTML. */
+.black-hole.is-open,
+.envelope.is-open,
+.contacto.is-open {
+  z-index: 20;
+}
+
+/* -------------  Grupo: Cesae Hub  ---------------- */
+.cesae-hub {
+  left: 2.5%;
+  top: 6%;
+  width: 30%;
+  height: 24%;
+}
+.cesae-hub__frame {
+  position: absolute;
+  left: 10%;
+  width: 81%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cesae-hub__frame-inner {
+  width: 81%;
+  height: 82%;
+  transform: rotate(-14deg);
+  transition:
+    transform 0.4s var(--ease),
+    filter 0.4s var(--ease);
+}
+.cesae-hub__astronaut {
+  position: absolute;
+  top: 24%;
+  width: 37%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cesae-hub__astronaut-inner {
+  height: 97%;
+}
+
+/* -------------- Grupo: SurfSway ----------------- */
+.surf-sway {
+  left: 38%;
+  top: 12%;
+  width: 27%;
+  height: 13%;
+}
+.surf-sway__surfista {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.4s var(--ease),
+    filter 0.4s var(--ease);
+}
+.surf-sway__stars {
+  position: absolute;
+  left: 72%;
+  height: 30%;
+  object-fit: cover;
+  opacity: 60%;
+}
+
+/* -------------- Grupo: DAB ----------------- */
+.dab {
+  left: 75%;
+  top: 1%;
+  width: 17%;
+  height: 14.5%;
+}
+.dab__jupiter {
+  position: absolute;
+  top: 38%;
+  height: 62%;
+  object-fit: cover;
+  transition:
+    transform 0.4s var(--ease),
+    filter 0.4s var(--ease);
+}
+.dab__gato {
+  position: absolute;
+  left: 28%;
+  height: 50%;
+  object-fit: cover;
+  transition:
+    transform 0.4s var(--ease),
+    filter 0.4s var(--ease);
+}
+
+/* -------------- Coordenadas ----------------- */
+.coordenadas {
+  left: 80%;
+  top: 17%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coordenadas__inner {
+  height: 75%;
+  opacity: 60%;
+}
+
+/* ------------- Grupo: Vinho ---------------- */
+.vinho {
+  left: 3%;
+  top: 38%;
+  width: 28%;
+  height: 22%;
+}
+.vinho__woman {
+  position: absolute;
+  left: 8%;
+  width: 66%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__woman-inner {
+  height: 93%;
+  transform: rotate(-7deg);
+}
+.vinho__earth {
+  position: absolute;
+  top: 32%;
+  width: 80%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__earth-inner {
+  height: 80%;
+  transform: rotate(14deg);
+}
+.vinho__saturno {
+  position: absolute;
+  left: 33%;
+  top: 35%;
+  width: 64%;
+  height: 53%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__saturno-inner {
+  height: 80%;
+  transform: rotate(163.89deg) scaleY(-1);
+}
+.vinho__star {
+  position: absolute;
+  left: 76%;
+  top: 34%;
+  height: 8%;
+  object-fit: cover;
+  opacity: 60%;
+}
+
+/* -------------- Grupo: Galeria ----------------- */
+.galeria-group {
+  left: 28%;
+  top: 30%;
+  width: 22%;
+  height: 13.5%;
+}
+.galeria-group__frame {
+  position: absolute;
+  left: 21.466%;
+  height: 100%;
+  object-fit: cover;
+}
+.galeria-group__paper-star {
+  position: absolute;
+  left: 8%;
+  top: 40%;
+  height: 38%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.galeria-group__paper-star-inner {
+  height: 94%;
+  transform: rotate(-8deg);
+}
+
+/* ------------- Black hole ---------------- */
+.black-hole {
+  left: 53%;
+  top: 36%;
+  height: 14%;
+  display: block;
+  cursor: pointer;
+}
+.black-hole-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.black-hole-message {
+  position: absolute;
+  left: -32%;
+  top: -28%;
+  width: 63%;
+  height: 30%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transform-origin: bottom right;
+  pointer-events: none;
+  transition:
+    opacity 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+.black-hole.is-open .black-hole-message {
+  opacity: 1;
+}
+.black-hole-message__arrow {
+  position: absolute;
+  right: -20%;
+  bottom: -8%;
+  height: 45%;
+  opacity: 55%;
+}
+.black-hole-message__text {
+  margin: 0;
+  font-family: var(--font-family-handwritten);
+  font-size: clamp(1.25rem, 2.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--gold);
+  opacity: 55%;
+  text-align: center;
+  transform: rotate(7.25deg);
+}
+
+/* --------------- Grupo: Foody ---------------- */
+.foody {
+  left: 80%;
+  top: 27%;
+  width: 18%;
+  height: 21%;
+}
+.foody__disco {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.foody__disco-inner {
+  width: 83%;
+  transform: rotate(6deg);
+}
+.foody__fruta {
+  position: absolute;
+  left: 29%;
+  top: 71%;
+  height: 18%;
+  object-fit: cover;
+}
+
+/* -------------- Maternar -------------- */
+.maternar {
+  left: 40%;
+  top: 54%;
+  height: 8%;
+  display: block;
+  cursor: pointer;
+}
+.maternar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*  ------ Complex Jupiter ------ */
+.complex-jupiter {
+  left: 6%;
+  top: 65%;
+  width: 32%;
+  height: 20%;
+}
+.complex-jupiter__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% 50% 50% 16.16%;
+}
+.complex-jupiter__bg:hover {
+  animation: complex-jupiter-pulse 6s ease-in-out infinite;
+}
+.complex-jupiter__spark {
+  position: absolute;
+  left: 18%;
+  top: 23%;
+  height: 60%;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0.75;
+  animation: complex-jupiter-spin 160s linear infinite;
+}
+.complex-jupiter__planet {
+  position: absolute;
+  left: 34%;
+  top: 36%;
+  height: 32%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ------ Grupo: Planet porta ---------- */
+.planet-porta {
+  left: 64%;
+  top: 55%;
+  width: 28%;
+  height: 26%;
+}
+.planet-porta__waves {
+  position: absolute;
+  height: 70%;
+  display: block;
+  overflow: visible;
+  --wave-duration: 14s;
+  --wave-circles: 7;
+}
+.planet-porta__waves circle {
+  cx: 0px;
+  cy: 0px;
+  fill: none;
+  stroke: #ffce7a9c;
+  animation-duration: var(--wave-duration);
+  animation-name: planet-porta-ripple;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: calc(
+    var(--anim-step) * var(--wave-duration) / var(--wave-circles)
+  );
+}
+@keyframes planet-porta-ripple {
+  from {
+    r: 0;
+    opacity: 1;
+  }
+  to {
+    r: 100px;
+    opacity: 0;
+  }
+}
+.planet-porta__planet {
+  position: absolute;
+  left: 25%;
+  top: 17.5%;
+  height: 35%;
+  object-fit: cover;
+  opacity: 99%;
+}
+.planet-porta__door {
+  position: absolute;
+  left: 44%;
+  top: 33%;
+  width: 51%;
+  height: 66%;
+  display: block;
+}
+.planet-porta__door-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.planet-porta__door-img--open {
+  opacity: 0;
+}
+.planet-porta__door:hover .planet-porta__door-img--open {
+  opacity: 1;
+}
+.planet-porta__door:hover .planet-porta__door-img--closed {
+  opacity: 0;
+}
+
+/* ---------------    Envelope  -------------- */
+.envelope {
+  left: 45%;
+  top: 76%;
+  width: 22%;
+  height: 16%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.envelope__inner {
+  position: relative;
+  width: 85%;
+  height: 89%;
+  transform: rotate(-10deg);
+  cursor: pointer;
+}
+.envelope__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.envelope__img--open {
+  opacity: 0;
+}
+.envelope.is-open .envelope__img--open {
+  opacity: 1;
+}
+.envelope.is-open .envelope__img--closed {
+  opacity: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Hover "aura galáctica" — indica discretamente que a imagem é clicável
+   (Cesae Hub, SurfSway, DAB, para já). Só transform (scale) + filter
+   (brilho muito leve + drop-shadow suave), nada de saturação, pulse ou
+   rotação nova — a rotação existente do Cesae Hub é preservada.
+   ------------------------------------------------------------------------- */
+.cesae-hub__frame-inner:hover {
+  transform: rotate(-14deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.surf-sway:hover .surf-sway__surfista {
+  transform: scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.dab:hover .dab__jupiter,
+.dab:hover .dab__gato {
+  transform: scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.vinho__woman-inner:hover {
+  transform: rotate(-7deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.galeria-group__frame:hover,
+.black-hole-img:hover,
+.maternar img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.foody__disco-inner:hover {
+  transform: rotate(6deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+/*    CV Message  */
+.cv-message {
+  position: absolute;
+  left: 68%;
+  top: 92%;
+  height: 24%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6em;
+  opacity: 0;
+  transform-origin: left top;
+  pointer-events: none;
+  transition:
+    opacity 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+.envelope.is-open .cv-message {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cv-message__arrow {
+  flex-shrink: 0;
+  transform: rotate(180deg);
+  height: 45%;
+  opacity: 55%;
+}
+.cv-message__link {
+  font-family: var(--font-family-handwritten);
+  font-size: clamp(1.4rem, 2.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--gold);
+  opacity: 55%;
+  text-decoration: none;
+}
+.cv-message__link:hover,
+.cv-message__link:focus-visible {
+  color: var(--pink);
+}
+
+/* --------------------  Grupo: Fly me to the moon -------------------- */
+.fly-me {
+  left: 8%;
+  top: 95%;
+  width: 31%;
+  height: 5%;
+}
+.fly-me__text {
+  position: absolute;
+  height: 75%;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   Contact Menu — versão empilhada (confirmada funcional).
+   Clicar no megafone revela os ícones das redes sociais numa coluna por
+   cima da imagem; clicar novamente recolhe-os com a animação inversa.
+   ========================================================================= */
+.contacto {
+  right: 0%;
+  top: 95%;
+  width: 13.79%; /* proporção real do megafone.png (736x981) — dá ao
+    .contacto__socials uma caixa-mãe com largura definida */
+  height: 12%;
+  display: block;
+}
+.contacto__trigger {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.3s var(--ease);
+}
+/* Feedback tipo "lily pad": aumenta ao passar o rato / quando o menu está aberto */
+.contacto__trigger:hover,
+.contacto.is-open .contacto__trigger {
+  transform: scale(1.08);
+}
+
+.contacto__socials {
+  position: absolute;
+  inset: 0;
+  /* Ocupa exatamente a área do megafone (para os ícones se poderem
+     posicionar a partir dela), mas sem bloquear o clique no gatilho —
+     só os ícones (quando abertos) voltam a aceitar cliques. */
+  pointer-events: none;
+}
+.contacto__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24%;
+  aspect-ratio: 1;
+  opacity: 0;
+  transform: translateY(-1.4em);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease-in,
+    transform 0.3s ease-in;
+  /**/
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  transition:
+    opacity 0.3s ease-in,
+    transform 0.3s ease-in,
+    color var(--t-fast);
+}
+
+/* Atraso no FECHO (menor especificidade que as regras de abertura em
+   ".contacto.is-open .contacto__icon:nth-child(N)", por isso só têm
+   efeito quando ".is-open" é removido) — ordem inversa da abertura, de
+   baixo para cima: Mail, Behance, GitHub, LinkedIn. */
+.contacto__icon--linkedin {
+  left: -3%;
+  top: -36%;
+  transition-delay: 0.24s;
+}
+.contacto__icon--github {
+  left: -43%;
+  top: -6%;
+  transition-delay: 0.16s;
+}
+
+.contacto__icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(
+    120px 60px at var(--x, 50%) var(--y, 50%),
+    var(--glow-color),
+    transparent var(--glow-spread, 70%)
+  );
+  transition: opacity var(--t-fast);
+  --glow-spread: 30%;
+}
+
+.contacto__icon:hover::before {
+  opacity: 1;
+}
+
+.contacto__icon--linkedin svg,
+.contacto__icon--github svg,
+.contacto__icon--behance svg,
+.contacto__icon--mail svg {
+  width: var(--size-icon);
+  height: var(--size-icon);
+  display: block;
+}
+
+.contacto__icon--behance {
+  left: -43%;
+  top: 26%;
+  transition-delay: 0.08s;
+}
+.contacto__icon--mail {
+  left: -3%;
+  top: 56%;
+  transition-delay: 0s;
+}
+
+.contacto__icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.contacto.is-open .contacto__icon {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.contacto.is-open .contacto__icon:nth-child(1) {
+  transition-delay: 0s;
+}
+.contacto.is-open .contacto__icon:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.contacto.is-open .contacto__icon:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.contacto.is-open .contacto__icon:nth-child(4) {
+  transition-delay: 0.24s;
+}
+/* Atravessa o ecrã da esquerda para a direita em loop contínuo. Entra
+   completamente (translateX(-100%), 100% da SUA PRÓPRIA largura, por
+   isso fica exato seja qual for o tamanho renderizado) e o ciclo
+   reinicia assim que o centro do foguete passa a borda direita — ou
+   seja, quando cerca de metade da imagem já saiu (translateX(100vw -
+   50%)) — eliminando o tempo morto sem esperar que desapareça de todo.
+   Mesma velocidade de antes. Só transform, nunca left. */
+.rocket {
+  left: 0%;
+  top: 106%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rocket-flight 14s linear infinite;
+}
+.rocket__inner {
+  /* Antes havia uma rotação de 90deg aqui, e esta caixa estreita e alta
+     (51%/195%) compensava-a para o foguete ficar corretamente enquadrado.
+     Essa rotação já não existe — sem ela, a caixa fica maior que o
+     próprio ".rocket" e, por estar centrada (align-items:center), o
+     excesso (195% - 100% = 95%, metade para cada lado) transborda por
+     baixo do ".rocket" e da colagem, aumentando a altura total da
+     página para além do footer mesmo sem criar espaço antes dele.
+     Sem rotação, a caixa deve ocupar exatamente o próprio ".rocket". */
+  width: 100%;
+  height: 100%;
+}
+.rocket__inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Regra comum a todas as imagens dentro de wrappers "-inner" rodados */
+.cesae-hub__frame-inner img,
+.cesae-hub__astronaut-inner img,
+.coordenadas__inner img,
+.vinho__woman-inner img,
+.vinho__earth-inner img,
+.vinho__saturno-inner img,
+.galeria-group__paper-star-inner img,
+.foody__disco-inner img,
+.fly-me__ribbon-inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Imagens "soltas" sem wrapper dedicado (sem rotação nem recorte especial) */
+.surf-sway__surfista,
+.surf-sway__stars,
+.dab__jupiter,
+.dab__gato,
+.vinho__star,
+.galeria-group__frame,
+.foody__fruta,
+.planet-porta__planet,
+.fly-me__text {
+  display: block;
+}
+
+/* =========================================================================
+   RESPONSIVIDADE — Tablet e Mobile (Figma: Homepage > Tablet / Mobile)
+   =========================================================================
+   Cada grupo (.cesae-hub, .vinho, etc.) tem os seus elementos internos
+   posicionados em % do PRÓPRIO grupo, não da colagem toda — por isso só é
+   preciso ajustar a posição/tamanho de cada grupo por breakpoint; o
+   conteúdo interno reposiciona-se sozinho. Rotações, opacidades e
+   object-fit não são repetidos aqui: continuam herdados das regras do
+   Desktop acima.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Tablet (portrait e landscape) — 768px a 1024px
+   Mesma técnica do Desktop (colagem em posições absolutas); só a
+   proporção do "canvas" e a posição/tamanho de cada grupo mudam, com base
+   no frame "Tablet" do Figma (área "Main": 834 x 1360).
+   ------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .collage {
+    aspect-ratio: 834 / 1360;
+  }
+  .cesae-hub {
+    left: 3%;
+    top: 2.206%;
+    width: 36.665%;
+    height: 24.117%;
+  }
+  .surf-sway {
+    left: 42.834%;
+    top: 5.879%;
+    width: 28.865%;
+    height: 13.497%;
+  }
+  .dab {
+    left: 77.905%;
+    top: 3.135%;
+    width: 18.258%;
+    height: 14.382%;
+  }
+  .coordenadas {
+    left: 80.437%;
+    top: 21.176%;
+    height: 6.516%;
+  }
+  .vinho {
+    left: 6.276%;
+    top: 32.043%;
+    width: 28.386%;
+    height: 20.895%;
+  }
+  .galeria-group {
+    left: 34.687%;
+    top: 28.035%;
+    width: 12.853%;
+    height: 11.197%;
+  }
+  .black-hole {
+    left: 53.021%;
+    top: 27.279%;
+    height: 14.485%;
+  }
+  .foody {
+    left: 78.475%;
+    top: 29.688%;
+    width: 17.681%;
+    height: 19.175%;
+  }
+}
+
+/* ----------------------- Mobile — até 767px ----------------------- */
+@media (max-width: 767px) {
+  .collage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: clamp(1.5rem, 6vw, 3rem); */
+    gap: clamp(2.75rem, 6vw, 3rem);
+    width: 100%;
+    min-width: 0;
+    max-width: 26rem;
+    aspect-ratio: auto;
+    margin-inline: auto;
+    padding-top: 50px; /* Novo */
+  }
+  .collage > * {
+    position: relative;
+    inset: auto;
+  }
+
+  .cesae-hub {
+    order: 1;
+    width: 95%;
+    aspect-ratio: 0.816;
+  }
+  .surf-sway {
+    order: 2;
+    width: 90%;
+    aspect-ratio: 1.355;
+  }
+  .dab {
+    order: 3;
+    width: 75%;
+    aspect-ratio: 0.765;
+  }
+  .coordenadas {
+    order: 4;
+    width: 60%;
+    aspect-ratio: 1.19;
+  }
+  .foody {
+    order: 5;
+    width: 72%;
+    aspect-ratio: 0.565;
+  }
+  .black-hole {
+    order: 6;
+    width: 78%;
+    aspect-ratio: 1.11;
+    margin: 30px 0;
+  }
+
+  .black-hole-message {
+    /* left: 50%; */
+    left: 30%;
+    top: auto;
+    bottom: 92%;
+    width: 80%;
+    transform: translateX(-50%) scale(0.85);
+    transform-origin: bottom center;
+  }
+  .black-hole.is-open .black-hole-message {
+    transform: translateX(-50%) scale(1);
+  }
+
+  .galeria-group {
+    order: 7;
+    width: 75%;
+    aspect-ratio: 0.903;
+    margin: 30px 0;
+  }
+  .vinho {
+    order: 8;
+    width: 95%;
+    aspect-ratio: 0.83;
+  }
+  .maternar {
+    order: 9;
+    width: 58%;
+    aspect-ratio: 1.069;
+    margin: 30px 0;
+  }
+  .complex-jupiter {
+    order: 10;
+    width: 96%;
+    aspect-ratio: 1.078;
+    margin: 30px 0;
+  }
+  .planet-porta {
+    order: 11;
+    width: 90%;
+    aspect-ratio: 0.699;
+  }
+  .envelope {
+    order: 12;
+    width: 75%;
+    aspect-ratio: 0.894;
+  }
+
+  .fly-me {
+    order: 13;
+    width: 70%;
+    aspect-ratio: 4;
+    margin: 55px 0;
+    right: 5%;
+  }
+  .contacto {
+    order: 14;
+    width: 50%;
+    aspect-ratio: 0.75;
+  }
+  .rocket {
+    order: 15;
+    /* width: 80%; */
+    aspect-ratio: 1.952;
+  }
+
+  .cv-message__arrow {
+    height: 75%;
+  }
+
+  .cv-message {
+    left: 65%;
+    top: auto;
+    bottom: -22%;
+    /* width: 90%;
+    height: auto; */
+    transform: translateX(-50%) scale(0.85);
+    transform-origin: bottom center;
+  }
+  .envelope.is-open .cv-message {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* =========================================================================
+   Animations
+   =========================================================================
+   Todas as animações contínuas (@keyframes) usadas nesta secção. As
+   transições de abertura/fecho (mensagens, menu de contacto) vivem junto
+   de cada componente, acima — aqui ficam só os "loops" próprios. Todas
+   usam apenas transform/opacity, nunca top/left. */
+@keyframes complex-jupiter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes complex-jupiter-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    /* opacity: 0.65; */
+  }
+  50% {
+    transform: scale(1.06);
+    /* opacity: 0.85; */
+  }
+}
+@keyframes rocket-flight {
+  from {
+    /* Fora do ecrã à esquerda por completo (100% da própria largura) */
+    transform: translateX(-100%);
+  }
+  to {
+    /* Centro do foguete exatamente na borda direita do ecrã — metade
+       da imagem já ultrapassou o limite direito */
+    transform: translateX(calc(100vw - 50%));
+  }
+}

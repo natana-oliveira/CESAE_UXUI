@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 36 36.8125" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mail">
+<path id="Combined-Shape" d="M18 0C27.9411 0 36 8.24086 36 18.4062C35.9999 28.5715 27.9411 36.8125 18 36.8125C8.05894 36.8125 0.000100813 28.5715 0 18.4062C0 8.24086 8.05887 0 18 0ZM26.8906 15.4609C26.865 15.4751 19.7901 19.3972 18.251 19.3975C16.8449 19.3975 9.61111 15.4612 9.61133 15.4609L9.59961 24.2959C9.59961 25.1086 10.2456 25.7683 11.041 25.7686H25.46C26.257 25.7686 26.9023 25.1087 26.9023 24.2959L26.8906 15.4609ZM11.041 11.0439C10.2449 11.0442 9.59961 11.7039 9.59961 12.5166V13.1719C9.59961 13.1719 16.8448 17.373 18.251 17.373C19.7252 17.3727 26.8906 13.252 26.8906 13.252L26.9023 12.5166C26.9023 11.7038 26.257 11.0439 25.46 11.0439H11.041Z" fill="url(#paint0_radial_0_9)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_9" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18 18.4062) rotate(90) scale(18.4063 18)">
+<stop stop-color="white"/>
+<stop offset="0.115385" stop-color="#F5FF82"/>
+<stop offset="0.543269" stop-color="#D05DC8"/>
+<stop offset="1" stop-color="#440864"/>
+</radialGradient>
+</defs>
+</svg>

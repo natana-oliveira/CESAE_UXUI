@@ -1,0 +1,508 @@
+/* =========================================================================
+   MAIN SHOWCASE — secção "Main" (Figma: Homepage > Desktop - 1 > Main)
+   =========================================================================
+   O frame do Figma é uma colagem ilustrada (1440 x 2207) com peças
+   sobrepostas e rodadas — não é uma grelha regular. Por isso a técnica mais
+   fiel/adequada é: um contentor com aspect-ratio fixo (a mesma proporção do
+   frame original) e cada peça posicionada com left/top/width/height em %
+   desse contentor. Assim toda a composição escala de forma fluida e
+   proporcional em qualquer largura de ecrã, preservando exactamente a
+   hierarquia visual e os espaçamentos do design — Grid/Flexbox são usados
+   apenas onde fazem sentido (centrar as peças que têm rotação).
+   ========================================================================= */
+
+.main-showcase {
+  position: relative;
+  width: 100%;
+  padding: clamp(1.5rem, 4vw, 3rem) 0;
+  /* Em ecrãs muito estreitos permite scroll horizontal em vez de encolher
+     a colagem abaixo do ponto em que o texto desenhado nas imagens
+     (ex.: coordenadas, "fly me to the moon") deixa de ser legível. */
+  overflow-x: auto;
+}
+
+.collage {
+  position: relative;
+  width: 100%;
+  min-width: 45rem; /* piso de legibilidade em mobile (ver nota acima) */
+  max-width: 1440px;
+  margin-inline: auto;
+  aspect-ratio: 1440 / 2207;
+}
+
+/* Utilitário base: todas as peças/grupos são posicionados em absoluto
+   dentro do `.collage` (ou de um grupo, no caso das peças aninhadas). */
+.collage > * {
+  position: absolute;
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: Cesae Hub
+   ------------------------------------------------------------------------- */
+.cesae-hub {
+  left: 4.306%;
+  top: 2.537%;
+  width: 35.282%;
+  height: 24.696%;
+}
+.cesae-hub__frame {
+  position: absolute;
+  left: 8.363%;
+  top: 0%;
+  width: 91.635%;
+  height: 86.418%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cesae-hub__frame-inner {
+  width: 81.464%;
+  height: 82.135%;
+  transform: rotate(-14.81deg);
+}
+.cesae-hub__astronaut {
+  position: absolute;
+  left: 0%;
+  top: 24.552%;
+  width: 37.518%;
+  height: 75.436%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cesae-hub__astronaut-inner {
+  width: 84.19%;
+  height: 97.298%;
+  transform: rotate(-4.39deg);
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: SurfSway
+   ------------------------------------------------------------------------- */
+.surf-sway {
+  left: 42.639%;
+  top: 6.298%;
+  width: 27.778%;
+  height: 13.82%;
+}
+.surf-sway__surfista {
+  position: absolute;
+  left: 0%;
+  top: 8.197%;
+  width: 100%;
+  height: 91.803%;
+  object-fit: cover;
+}
+.surf-sway__stars {
+  position: absolute;
+  left: 62.5%;
+  top: 0%;
+  width: 37.5%;
+  height: 47.541%;
+  border-radius: 19.333%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: DAB
+   ------------------------------------------------------------------------- */
+.dab {
+  left: 76.389%;
+  top: 3.489%;
+  width: 17.569%;
+  height: 14.726%;
+}
+.dab__jupiter {
+  position: absolute;
+  left: 0%;
+  top: 38.462%;
+  width: 79.051%;
+  height: 61.538%;
+  object-fit: cover;
+}
+.dab__gato {
+  position: absolute;
+  left: 27.273%;
+  top: 0%;
+  width: 72.727%;
+  height: 46.154%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Coordenadas
+   ------------------------------------------------------------------------- */
+.coordenadas {
+  left: 80.069%;
+  top: 17.988%;
+  width: 13.069%;
+  height: 7.145%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coordenadas__inner {
+  width: 89.815%;
+  height: 83.72%;
+  transform: rotate(-9.34deg);
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: Vinho
+   ------------------------------------------------------------------------- */
+.vinho {
+  left: 3.635%;
+  top: 29.905%;
+  width: 29.254%;
+  height: 22.913%;
+}
+.vinho__woman {
+  position: absolute;
+  left: 8.885%;
+  top: 0%;
+  width: 66.51%;
+  height: 65.622%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__woman-inner {
+  width: 90.166%;
+  height: 93.365%;
+  transform: rotate(-5.3deg);
+}
+.vinho__earth {
+  position: absolute;
+  left: 0%;
+  top: 32.683%;
+  width: 83.234%;
+  height: 67.323%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__earth-inner {
+  width: 83.437%;
+  height: 81.849%;
+  transform: rotate(13.81deg);
+}
+.vinho__saturno {
+  position: absolute;
+  left: 35.596%;
+  top: 35.981%;
+  width: 64.398%;
+  height: 53.646%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__saturno-inner {
+  width: 80.762%;
+  height: 80.762%;
+  transform: rotate(163.89deg) scaleY(-1);
+}
+.vinho__star {
+  position: absolute;
+  left: 72.799%;
+  top: 34.616%;
+  width: 12.818%;
+  height: 12.262%;
+  border-radius: 35.185%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: Galeria
+   ------------------------------------------------------------------------- */
+.galeria-group {
+  left: 32.917%;
+  top: 25.51%;
+  width: 13.264%;
+  height: 12.279%;
+}
+.galeria-group__frame {
+  position: absolute;
+  left: 21.466%;
+  top: 0%;
+  width: 78.534%;
+  height: 100%;
+  object-fit: cover;
+}
+.galeria-group__paper-star {
+  position: absolute;
+  left: 0%;
+  top: 45.018%;
+  width: 54.517%;
+  height: 37.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.galeria-group__paper-star-inner {
+  width: 94.46%;
+  height: 94.155%;
+  transform: rotate(-3.57deg);
+}
+
+/* -------------------------------------------------------------------------
+   Black hole (link)
+   ------------------------------------------------------------------------- */
+.black-hole {
+  left: 51.736%;
+  top: 24.694%;
+  width: 26.958%;
+  height: 15.858%;
+  display: block;
+  cursor: pointer;
+}
+.black-hole img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: Foody
+   ------------------------------------------------------------------------- */
+.foody {
+  left: 78.056%;
+  top: 27.322%;
+  width: 18.222%;
+  height: 21.03%;
+}
+.foody__disco {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.foody__disco-inner {
+  width: 83.845%;
+  height: 95.827%;
+  transform: rotate(5.61deg);
+}
+.foody__fruta {
+  position: absolute;
+  left: 29.727%;
+  top: 71.108%;
+  width: 34.577%;
+  height: 21.677%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Maternar / ComplexJupiter (peças isoladas)
+   ------------------------------------------------------------------------- */
+.maternar {
+  left: 40.903%;
+  top: 42.774%;
+  width: 19.306%;
+  height: 11.781%;
+  object-fit: cover;
+}
+.complex-jupiter {
+  left: 6.042%;
+  top: 55.007%;
+  width: 39.306%;
+  height: 23.789%;
+  object-fit: cover;
+  /* cantos assimétricos tal como no Figma: sup-esq / sup-dir / inf-dir / inf-esq */
+  border-radius: 15.017% 41.519% 15.017% 15.017%;
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: Planet porta
+   ------------------------------------------------------------------------- */
+.planet-porta {
+  left: 62.986%;
+  top: 49.433%;
+  width: 28.75%;
+  height: 26.824%;
+}
+.planet-porta__waves {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 96.618%;
+  height: 67.386%;
+}
+.planet-porta__planet {
+  position: absolute;
+  left: 18.841%;
+  top: 13.176%;
+  width: 58.937%;
+  height: 41.047%;
+  object-fit: cover;
+}
+.planet-porta__door {
+  position: absolute;
+  left: 48.068%;
+  top: 33.784%;
+  width: 51.932%;
+  height: 66.216%;
+  display: block;
+  cursor: pointer;
+}
+.planet-porta__door-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.planet-porta__door-img--open {
+  opacity: 0;
+}
+.planet-porta__door:hover .planet-porta__door-img--open,
+.planet-porta__door:focus-visible .planet-porta__door-img--open {
+  opacity: 1;
+}
+.planet-porta__door:hover .planet-porta__door-img--closed,
+.planet-porta__door:focus-visible .planet-porta__door-img--closed {
+  opacity: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Envelope — abre ao passar o rato (sem link no Figma original)
+   ------------------------------------------------------------------------- */
+.envelope {
+  left: 47.847%;
+  top: 65.699%;
+  width: 22.349%;
+  height: 16.315%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.envelope__inner {
+  position: relative;
+  width: 85.448%;
+  height: 89.152%;
+  transform: rotate(-9deg);
+}
+.envelope__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.envelope__img--open {
+  opacity: 0;
+}
+.envelope:hover .envelope__img--open,
+.envelope:focus-within .envelope__img--open {
+  opacity: 1;
+}
+.envelope:hover .envelope__img--closed,
+.envelope:focus-within .envelope__img--closed {
+  opacity: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Grupo: Fly me to the moon
+   ------------------------------------------------------------------------- */
+.fly-me {
+  left: 8.403%;
+  top: 82.102%;
+  width: 31.41%;
+  height: 5.117%;
+}
+.fly-me__ribbon {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 27.688%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.fly-me__ribbon-inner {
+  width: 103.202%;
+  height: 35.388%;
+  transform: rotate(-39.4deg) scaleY(-1);
+}
+.fly-me__text {
+  position: absolute;
+  left: 0.884%;
+  top: 15.941%;
+  width: 99.116%;
+  height: 65.532%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Contacto (link) / Rocket
+   ------------------------------------------------------------------------- */
+.contacto {
+  right: 0;
+  top: 81.788%;
+  width: 13.403%;
+  height: 11.689%;
+  display: block;
+  cursor: pointer;
+}
+.contacto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rocket {
+  left: 2.153%;
+  top: 89.895%;
+  width: 22.778%;
+  height: 7.612%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rocket__inner {
+  width: 51.22%;
+  height: 195.238%;
+  transform: rotate(90deg);
+}
+/* Regra comum a todas as imagens dentro de wrappers "-inner" rodados */
+.cesae-hub__frame-inner img,
+.cesae-hub__astronaut-inner img,
+.coordenadas__inner img,
+.vinho__woman-inner img,
+.vinho__earth-inner img,
+.vinho__saturno-inner img,
+.galeria-group__paper-star-inner img,
+.foody__disco-inner img,
+.fly-me__ribbon-inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* A imagem do foguetão (vista de cima, muito mais larga que alta) não
+   preenche bem uma caixa tão estreita em "cover" sem cortar as asas —
+   usa-se "contain" para preservar a nave inteira. */
+.rocket__inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Imagens "soltas" sem wrapper dedicado (sem rotação nem recorte especial) */
+.surf-sway__surfista,
+.surf-sway__stars,
+.dab__jupiter,
+.dab__gato,
+.vinho__star,
+.galeria-group__frame,
+.foody__fruta,
+.maternar,
+.complex-jupiter,
+.planet-porta__waves,
+.planet-porta__planet,
+.fly-me__text {
+  display: block;
+}

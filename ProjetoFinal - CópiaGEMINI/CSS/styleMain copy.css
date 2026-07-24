@@ -1,0 +1,620 @@
+.main-showcase {
+  position: relative;
+  width: 100%;
+}
+
+.collage {
+  position: relative;
+  width: 100%;
+  min-width: 45rem; /* piso de legibilidade em mobile (ver nota acima) */
+  aspect-ratio: 1440 / 2207;
+}
+
+.collage > * {
+  position: absolute;
+}
+
+/* -------------  Grupo: Cesae Hub  ---------------- */
+.cesae-hub {
+  left: 2.5%;
+  top: 6%;
+  width: 30%;
+  height: 24%;
+}
+.cesae-hub__frame {
+  position: absolute;
+  left: 10%;
+  width: 81%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cesae-hub__frame-inner {
+  width: 81%;
+  height: 82%;
+  transform: rotate(-14deg);
+}
+.cesae-hub__astronaut {
+  position: absolute;
+  top: 24%;
+  width: 37%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cesae-hub__astronaut-inner {
+  height: 97%;
+}
+
+/* -------------- Grupo: SurfSway ----------------- */
+.surf-sway {
+  left: 38%;
+  top: 12%;
+  width: 27%;
+  height: 13%;
+}
+.surf-sway__surfista {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+}
+.surf-sway__stars {
+  position: absolute;
+  left: 72%;
+  height: 30%;
+  object-fit: cover;
+  opacity: 60%;
+}
+
+/* -------------- Grupo: DAB ----------------- */
+.dab {
+  left: 75%;
+  top: 1%;
+  width: 17%;
+  height: 14.5%;
+}
+.dab__jupiter {
+  position: absolute;
+  top: 38%;
+  height: 62%;
+  object-fit: cover;
+}
+.dab__gato {
+  position: absolute;
+  left: 28%;
+  height: 50%;
+  object-fit: cover;
+}
+
+/* -------------- Coordenadas ----------------- */
+.coordenadas {
+  left: 80%;
+  top: 17%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coordenadas__inner {
+  height: 75%;
+  opacity: 60%;
+}
+
+/* ------------- Grupo: Vinho ---------------- */
+.vinho {
+  left: 3%;
+  top: 38%;
+  width: 28%;
+  height: 22%;
+}
+.vinho__woman {
+  position: absolute;
+  left: 8%;
+  width: 66%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__woman-inner {
+  height: 93%;
+  transform: rotate(-7deg);
+}
+.vinho__earth {
+  position: absolute;
+  top: 32%;
+  width: 80%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__earth-inner {
+  height: 80%;
+  transform: rotate(14deg);
+}
+.vinho__saturno {
+  position: absolute;
+  left: 33%;
+  top: 35%;
+  width: 64%;
+  height: 53%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vinho__saturno-inner {
+  height: 80%;
+  transform: rotate(163.89deg) scaleY(-1);
+}
+.vinho__star {
+  position: absolute;
+  left: 76%;
+  top: 34%;
+  height: 8%;
+  object-fit: cover;
+  opacity: 60%;
+}
+
+/* -------------- Grupo: Galeria ----------------- */
+.galeria-group {
+  left: 30%;
+  top: 30%;
+  width: 18%;
+  height: 13%;
+}
+.galeria-group__frame {
+  position: absolute;
+  left: 21.466%;
+  height: 100%;
+  object-fit: cover;
+}
+.galeria-group__paper-star {
+  position: absolute;
+  left: 6%;
+  top: 42%;
+  height: 36%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.galeria-group__paper-star-inner {
+  height: 94%;
+  transform: rotate(-8deg);
+}
+
+/* ------------- Black hole ---------------- */
+.black-hole {
+  left: 53%;
+  top: 36%;
+  height: 14%;
+  display: block;
+  cursor: pointer;
+}
+.black-hole img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------- Grupo: Foody ---------------- */
+.foody {
+  left: 80%;
+  top: 27%;
+  width: 18%;
+  height: 21%;
+}
+.foody__disco {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.foody__disco-inner {
+  width: 83%;
+  transform: rotate(6deg);
+}
+.foody__fruta {
+  position: absolute;
+  left: 29%;
+  top: 71%;
+  height: 18%;
+  object-fit: cover;
+}
+
+/* -------------- Maternar ----------------- */
+.maternar {
+  left: 40%;
+  top: 54%;
+  height: 8%;
+  display: block;
+  cursor: pointer;
+}
+.maternar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------------- Grupo: Planet porta ---------------------------------- */
+.planet-porta {
+  left: 64%;
+  top: 55%;
+  width: 28%;
+  height: 26%;
+}
+.planet-porta__waves {
+  position: absolute;
+  height: 70%;
+  display: block;
+  overflow: visible;
+  --wave-duration: 14s;
+  --wave-circles: 7;
+}
+/* Animação de ondas */
+.planet-porta__waves circle {
+  cx: 0px;
+  cy: 0px;
+  fill: none;
+  stroke: rgba(255, 111, 173, 0.607);
+  animation-duration: var(--wave-duration);
+  animation-name: planet-porta-ripple;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: calc(
+    var(--anim-step) * var(--wave-duration) / var(--wave-circles)
+  );
+}
+@keyframes planet-porta-ripple {
+  from {
+    r: 0;
+    opacity: 1;
+  }
+  to {
+    r: 100px;
+    opacity: 0;
+  }
+}
+.planet-porta__planet {
+  position: absolute;
+  left: 25%;
+  top: 17.5%;
+  height: 35%;
+  object-fit: cover;
+  opacity: 99%;
+}
+.planet-porta__door {
+  position: absolute;
+  left: 44%;
+  top: 33%;
+  width: 51%;
+  height: 66%;
+  display: block;
+}
+.planet-porta__door-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.planet-porta__door-img--open {
+  opacity: 0;
+}
+.planet-porta__door:hover .planet-porta__door-img--open {
+  opacity: 1;
+}
+.planet-porta__door:hover .planet-porta__door-img--closed {
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------------------- ComplexJupiter  ------------------------------------------------------------------------- */
+
+.complex-jupiter {
+  left: 6.042%;
+  top: 65.007%;
+  height: 20%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Envelope 
+   ------------------------------------------------------------------------- */
+.envelope {
+  left: 48%;
+  top: 76%;
+  width: 22%;
+  height: 16%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.envelope__inner {
+  position: relative;
+  width: 85%;
+  height: 89%;
+  transform: rotate(-10deg);
+}
+.envelope__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.envelope__img--open {
+  opacity: 0;
+}
+.envelope:hover .envelope__img--open,
+.envelope:focus-within .envelope__img--open {
+  opacity: 1;
+}
+.envelope:hover .envelope__img--closed,
+.envelope:focus-within .envelope__img--closed {
+  opacity: 0;
+}
+
+/* -------------------------------  Grupo: Fly me to the moon ---------------------------------- */
+.fly-me {
+  left: 8%;
+  top: 95%;
+  width: 31%;
+  height: 5%;
+}
+
+.fly-me__text {
+  position: absolute;
+  height: 75%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   Contacto (link) / Rocket
+   ------------------------------------------------------------------------- */
+.contacto {
+  right: 0%;
+  top: 95%;
+  width: 13%;
+  height: 12%;
+  display: block;
+  cursor: pointer;
+}
+.contacto img {
+  height: 100%;
+  object-fit: cover;
+}
+.rocket {
+  top: 105%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rocket__inner {
+  width: 51%;
+  height: 195%;
+}
+.rocket__inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Regra comum a todas as imagens dentro de wrappers "-inner" rodados */
+.cesae-hub__frame-inner img,
+.cesae-hub__astronaut-inner img,
+.coordenadas__inner img,
+.vinho__woman-inner img,
+.vinho__earth-inner img,
+.vinho__saturno-inner img,
+.galeria-group__paper-star-inner img,
+.foody__disco-inner img,
+.fly-me__ribbon-inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Imagens "soltas" sem wrapper dedicado (sem rotação nem recorte especial) */
+.surf-sway__surfista,
+.surf-sway__stars,
+.dab__jupiter,
+.dab__gato,
+.vinho__star,
+.galeria-group__frame,
+.foody__fruta,
+.complex-jupiter,
+.planet-porta__planet,
+.fly-me__text {
+  display: block;
+}
+
+/* =========================================================================
+   RESPONSIVIDADE — Tablet e Mobile (Figma: Homepage > Tablet / Mobile)
+   =========================================================================
+   Cada grupo (.cesae-hub, .vinho, etc.) tem os seus elementos internos
+   posicionados em % do PRÓPRIO grupo, não da colagem toda — por isso só é
+   preciso ajustar a posição/tamanho de cada grupo por breakpoint; o
+   conteúdo interno reposiciona-se sozinho. Rotações, opacidades e
+   object-fit não são repetidos aqui: continuam herdados das regras do
+   Desktop acima.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Tablet (portrait e landscape) — 768px a 1024px
+   Mesma técnica do Desktop (colagem em posições absolutas); só a
+   proporção do "canvas" e a posição/tamanho de cada grupo mudam, com base
+   no frame "Tablet" do Figma (área "Main": 834 x 1360).
+   ------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .collage {
+    aspect-ratio: 834 / 1360;
+  }
+  .cesae-hub {
+    left: 3%;
+    top: 2.206%;
+    width: 36.665%;
+    height: 24.117%;
+  }
+  .surf-sway {
+    left: 42.834%;
+    top: 5.879%;
+    width: 28.865%;
+    height: 13.497%;
+  }
+  .dab {
+    left: 77.905%;
+    top: 3.135%;
+    width: 18.258%;
+    height: 14.382%;
+  }
+  .coordenadas {
+    left: 80.437%;
+    top: 21.176%;
+    height: 6.516%;
+  }
+  .vinho {
+    left: 6.276%;
+    top: 32.043%;
+    width: 28.386%;
+    height: 20.895%;
+  }
+  .galeria-group {
+    left: 34.687%;
+    top: 28.035%;
+    width: 12.853%;
+    height: 11.197%;
+  }
+  .black-hole {
+    left: 53.021%;
+    top: 27.279%;
+    height: 14.485%;
+  }
+  .foody {
+    left: 78.475%;
+    top: 29.688%;
+    width: 17.681%;
+    height: 19.175%;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Mobile — até 767px
+   O frame "Mobile" do Figma existe mas está vazio (sem conteúdo
+   desenhado), por isso o empilhamento segue a especificação escrita:
+   uma única coluna, sem sobreposição nem scroll horizontal. A proporção
+   (aspect-ratio) de cada grupo vem das suas próprias dimensões no
+   Desktop, e a ordem de apresentação segue a sequência definida pelo
+   cliente, aplicada apenas com `order` do Flexbox — o HTML não é
+   alterado.
+   ------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .collage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 6vw, 3rem);
+    width: 100%;
+    min-width: 0;
+    max-width: 26rem;
+    aspect-ratio: auto;
+    margin-inline: auto;
+  }
+  .collage > * {
+    position: relative;
+    inset: auto;
+  }
+
+  .cesae-hub {
+    order: 1;
+    width: 92%;
+    aspect-ratio: 0.816;
+  }
+  .surf-sway {
+    order: 2;
+    width: 82%;
+    aspect-ratio: 1.355;
+  }
+  .dab {
+    order: 3;
+    width: 56%;
+    aspect-ratio: 0.765;
+  }
+  .coordenadas {
+    order: 4;
+    width: 46%;
+    aspect-ratio: 1.19;
+  }
+  .foody {
+    order: 5;
+    width: 62%;
+    aspect-ratio: 0.565;
+  }
+  .black-hole {
+    order: 6;
+    width: 74%;
+    aspect-ratio: 1.11;
+  }
+  .galeria-group {
+    order: 7;
+    width: 62%;
+    aspect-ratio: 0.903;
+  }
+  .vinho {
+    order: 8;
+    width: 88%;
+    aspect-ratio: 0.83;
+  }
+  .maternar {
+    order: 9;
+    width: 58%;
+    aspect-ratio: 1.069;
+  }
+  .complex-jupiter {
+    order: 10;
+    width: 96%;
+    aspect-ratio: 1.078;
+  }
+  .planet-porta {
+    order: 11;
+    width: 86%;
+    aspect-ratio: 0.699;
+  }
+  .envelope {
+    order: 12;
+    width: 68%;
+    aspect-ratio: 0.894;
+  }
+  .fly-me {
+    order: 13;
+    width: 70%;
+    aspect-ratio: 4;
+  }
+  .contacto {
+    order: 14;
+    width: 50%;
+    aspect-ratio: 0.75;
+  }
+  .rocket {
+    order: 15;
+    width: 50%;
+    aspect-ratio: 1.952;
+  }
+}
+
+hr {
+  border-top: 1px solid #bababa;
+}
+
+.copyright {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 12px;
+  color: #979797;
+}
