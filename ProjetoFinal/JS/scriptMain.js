@@ -1,13 +1,5 @@
-/* Secção Main: painéis interativos (Figma: Homepage > Desktop Clicked)
-   - Black Hole Message (clicar no buraco negro)
-   - CV Message (clicar no envelope)
-   - Contact Menu (clicar no megafone)
-   A porta e o envelope continuam a abrir/fechar apenas com CSS (:hover),
-   isso não muda aqui — este ficheiro só trata dos 3 painéis acima. */
-
 const OPEN_CLASS = "is-open";
 
-/* Todos os painéis que participam na regra "só um aberto de cada vez". */
 function getTogglePanels() {
   return [
     document.getElementById("blackHole"),
@@ -16,14 +8,12 @@ function getTogglePanels() {
   ].filter(Boolean);
 }
 
-/* Fecha todos os painéis, exceto (opcionalmente) um. */
 function closeAllPanels(except) {
   getTogglePanels().forEach((panel) => {
     if (panel !== except) panel.classList.remove(OPEN_CLASS);
   });
 }
 
-/* Alterna um painel, fechando sempre os restantes primeiro. */
 function togglePanel(panel) {
   if (!panel) return;
   const willOpen = !panel.classList.contains(OPEN_CLASS);
@@ -58,7 +48,6 @@ function toggleContactMenu() {
   }
 }
 
-/* Fecha o painel aberto ao clicar fora dele. */
 document.addEventListener("click", (event) => {
   const openPanel = getTogglePanels().find((panel) =>
     panel.classList.contains(OPEN_CLASS),
@@ -67,3 +56,26 @@ document.addEventListener("click", (event) => {
     openPanel.classList.remove(OPEN_CLASS);
   }
 });
+
+["blackHole", "envelope"].forEach((id) => {
+  const panel = document.getElementById(id);
+  if (panel) {
+    panel.addEventListener("mouseleave", () => {
+      panel.classList.remove(OPEN_CLASS);
+    });
+  }
+});
+
+const aboutMePhoto = document.getElementById("aboutMePhoto");
+if (aboutMePhoto) {
+  aboutMePhoto.addEventListener("mouseenter", () => {
+    aboutMePhoto.classList.add(OPEN_CLASS);
+  });
+  aboutMePhoto.addEventListener("mouseleave", () => {
+    aboutMePhoto.classList.remove(OPEN_CLASS);
+  });
+}
+
+function toggleAboutMeImage() {
+  if (aboutMePhoto) aboutMePhoto.classList.toggle("is-revealed");
+}

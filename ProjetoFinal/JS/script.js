@@ -66,7 +66,7 @@ spawnStars(document.getElementById("stars-bg"), 400, 0.2); // Cria: 400 estrelas
   );
 })();
 
-/* ================= Entrance sequence ================= */
+/*  ---------- Entrance sequence ---------- */
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.getElementById("navbar").classList.add("in");

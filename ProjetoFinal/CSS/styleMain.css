@@ -57,6 +57,17 @@
 }
 .cesae-hub__astronaut-inner {
   height: 97%;
+  animation: astronaut-float 12s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes astronaut-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
 }
 
 /* -------------- Grupo: SurfSway ----------------- */
@@ -97,15 +108,58 @@
   transition:
     transform 0.4s var(--ease),
     filter 0.4s var(--ease);
+  animation: complex-jupiter-pulse 12s ease-in-out infinite;
 }
 .dab__gato {
   position: absolute;
   left: 28%;
   height: 50%;
   object-fit: cover;
+  /* O hover existente (".dab:hover .dab__gato") também anima "transform",
+     e uma animação CSS sobrepõe-se sempre a uma regra normal na mesma
+     propriedade — por isso o hover já não define "transform" diretamente
+     (ver mais abaixo). Em vez disso muda esta variável, que os keyframes
+     já leem em cada frame, compondo os dois sem reiniciar a animação. */
+  --gato-hover-scale: 1;
   transition:
-    transform 0.4s var(--ease),
+    --gato-hover-scale 0.4s var(--ease),
     filter 0.4s var(--ease);
+  animation: gato-float 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+/* Regista a variável como <number> para poder fazer transition suave
+   (sem isto, mudar a variável no hover seria instantâneo/brusco). */
+@property --gato-hover-scale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+/* Percurso orgânico e irregular (cima -> diagonal sup. direita -> centro
+   -> diagonal inf. esquerda -> baixo -> centro), com leve rotação ±2°.
+   scale(var(--gato-hover-scale)) mantém o hover a compor-se com o
+   movimento em vez de o substituir. */
+@keyframes gato-float {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(var(--gato-hover-scale));
+  }
+  20% {
+    transform: translate(0, -3%) rotate(1deg) scale(var(--gato-hover-scale));
+  }
+  40% {
+    transform: translate(3%, -4%) rotate(2deg) scale(var(--gato-hover-scale));
+  }
+  55% {
+    transform: translate(0, 0) rotate(0deg) scale(var(--gato-hover-scale));
+  }
+  75% {
+    transform: translate(-3%, 3%) rotate(-2deg) scale(var(--gato-hover-scale));
+  }
+  90% {
+    transform: translate(0, 2%) rotate(-1deg) scale(var(--gato-hover-scale));
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(var(--gato-hover-scale));
+  }
 }
 
 /* -------------- Coordenadas ----------------- */
@@ -153,7 +207,21 @@
 }
 .vinho__earth-inner {
   height: 80%;
+  /* Sem hover próprio — a animação pode controlar "transform" livremente.
+     Cada keyframe repete a rotação base (rotate(14deg)) para não a
+     perder enquanto a animação está ativa. */
   transform: rotate(14deg);
+  animation: earth-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes earth-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(14deg);
+  }
+  50% {
+    transform: translateY(-3%) rotate(16deg);
+  }
 }
 .vinho__saturno {
   position: absolute;
@@ -167,7 +235,24 @@
 }
 .vinho__saturno-inner {
   height: 80%;
+  /* Sem hover próprio. "animation-delay" negativo arranca o ciclo já a
+     meio, para nunca ficar sincronizado com o da Terra. */
   transform: rotate(163.89deg) scaleY(-1);
+  animation: saturno-float 8s ease-in-out infinite;
+  animation-delay: -3s;
+  will-change: transform;
+}
+@keyframes saturno-float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(163.89deg) scaleY(-1);
+  }
+  30% {
+    transform: translate(-1.5%, -3%) rotate(162.5deg) scaleY(-1);
+  }
+  65% {
+    transform: translate(1%, -1%) rotate(165deg) scaleY(-1);
+  }
 }
 .vinho__star {
   position: absolute;
@@ -190,6 +275,38 @@
   left: 21.466%;
   height: 100%;
   object-fit: cover;
+  /* O hover existente (".galeria-group__frame:hover", mais abaixo)
+     também animava "transform" diretamente — e uma animação CSS
+     sobrepõe-se sempre a uma regra normal na mesma propriedade. Por
+     isso o hover passa a mudar só esta variável (ver "gato-hover-scale"
+     para o mesmo padrão), que os keyframes já leem em cada frame. */
+  --frame-hover-scale: 1;
+  transition:
+    --frame-hover-scale 0.4s var(--ease),
+    filter 0.4s var(--ease);
+  animation: frame-gesture 7s ease-in-out infinite;
+  will-change: transform;
+}
+@property --frame-hover-scale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+/* Pequeno gesto: desloca-se ligeiramente para a direita e para baixo,
+   com uma leve rotação, e regressa devagar — como a mão a ajustar o
+   quadro. scale(var(--frame-hover-scale)) compõe-se com o hover. */
+@keyframes frame-gesture {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(var(--frame-hover-scale));
+  }
+  45% {
+    transform: translate(1.5%, 1%) rotate(1deg) scale(var(--frame-hover-scale));
+  }
+  75% {
+    transform: translate(0.6%, 0.4%) rotate(0.4deg)
+      scale(var(--frame-hover-scale));
+  }
 }
 .galeria-group__paper-star {
   position: absolute;
@@ -269,6 +386,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: disco-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes disco-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4%);
+  }
 }
 .foody__disco-inner {
   width: 83%;
@@ -280,6 +408,25 @@
   top: 71%;
   height: 18%;
   object-fit: cover;
+  animation: fruta-abduct 12s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes fruta-abduct {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-in-out;
+  }
+  45% {
+    transform: translateY(-85%);
+    animation-timing-function: linear;
+  }
+  60% {
+    transform: translateY(-85%);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* -------------- Maternar -------------- */
@@ -311,7 +458,8 @@
   object-fit: cover;
   border-radius: 50% 50% 50% 16.16%;
 }
-.complex-jupiter__bg:hover {
+.complex-jupiter__bg:hover,
+.fly-me__text:hover {
   animation: complex-jupiter-pulse 6s ease-in-out infinite;
 }
 .complex-jupiter__spark {
@@ -440,39 +588,6 @@
   opacity: 0;
 }
 
-/* -------------------------------------------------------------------------
-   Hover "aura galáctica" — indica discretamente que a imagem é clicável
-   (Cesae Hub, SurfSway, DAB, para já). Só transform (scale) + filter
-   (brilho muito leve + drop-shadow suave), nada de saturação, pulse ou
-   rotação nova — a rotação existente do Cesae Hub é preservada.
-   ------------------------------------------------------------------------- */
-.cesae-hub__frame-inner:hover {
-  transform: rotate(-14deg) scale(1.02);
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
-.surf-sway:hover .surf-sway__surfista {
-  transform: scale(1.02);
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
-.dab:hover .dab__jupiter,
-.dab:hover .dab__gato {
-  transform: scale(1.02);
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
-.vinho__woman-inner:hover {
-  transform: rotate(-7deg) scale(1.02);
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
-.galeria-group__frame:hover,
-.black-hole-img:hover,
-.maternar img:hover {
-  transform: scale(1.02);
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
-.foody__disco-inner:hover {
-  transform: rotate(6deg) scale(1.02);
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
 /*    CV Message  */
 .cv-message {
   position: absolute;
@@ -525,16 +640,40 @@
   object-fit: cover;
 }
 
-/* =========================================================================
-   Contact Menu — versão empilhada (confirmada funcional).
-   Clicar no megafone revela os ícones das redes sociais numa coluna por
-   cima da imagem; clicar novamente recolhe-os com a animação inversa.
-   ========================================================================= */
+/* -------- Hover "aura galáctica" ------------- */
+.cesae-hub__frame-inner:hover {
+  transform: rotate(-14deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.surf-sway:hover .surf-sway__surfista,
+.dab:hover .dab__jupiter,
+.black-hole-img:hover,
+.maternar img:hover,
+.contacto__trigger:hover,
+.galeria-group__frame:hover,
+.dab:hover .dab__gato,
+.about-me__photo-crop:hover {
+  --gato-hover-scale: 1.02;
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+
+.vinho__woman-inner:hover {
+  transform: rotate(-7deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.foody__disco-inner:hover {
+  transform: rotate(6deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+.envelope__inner:hover {
+  transform: rotate(-10deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+/* --------  Contact Menu --------  */
 .contacto {
   right: 0%;
   top: 95%;
-  width: 13.79%; /* proporção real do megafone.png (736x981) — dá ao
-    .contacto__socials uma caixa-mãe com largura definida */
+  width: 13.8%;
   height: 12%;
   display: block;
 }
@@ -547,49 +686,36 @@
   transform-origin: center;
   transition: transform 0.3s var(--ease);
 }
-/* Feedback tipo "lily pad": aumenta ao passar o rato / quando o menu está aberto */
-.contacto__trigger:hover,
 .contacto.is-open .contacto__trigger {
-  transform: scale(1.08);
+  transform: scale(1.02);
 }
 
 .contacto__socials {
   position: absolute;
   inset: 0;
-  /* Ocupa exatamente a área do megafone (para os ícones se poderem
-     posicionar a partir dela), mas sem bloquear o clique no gatilho —
-     só os ícones (quando abertos) voltam a aceitar cliques. */
   pointer-events: none;
 }
+
 .contacto__icon {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 24%;
   aspect-ratio: 1;
   opacity: 0;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.contacto-home {
   transform: translateY(-1.4em);
   pointer-events: none;
   transition:
     opacity 0.3s ease-in,
     transform 0.3s ease-in;
-  /**/
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  color: var(--ink);
   transition:
     opacity 0.3s ease-in,
     transform 0.3s ease-in,
     color var(--t-fast);
 }
-
-/* Atraso no FECHO (menor especificidade que as regras de abertura em
-   ".contacto.is-open .contacto__icon:nth-child(N)", por isso só têm
-   efeito quando ".is-open" é removido) — ordem inversa da abertura, de
-   baixo para cima: Mail, Behance, GitHub, LinkedIn. */
 .contacto__icon--linkedin {
   left: -3%;
   top: -36%;
@@ -664,13 +790,7 @@
 .contacto.is-open .contacto__icon:nth-child(4) {
   transition-delay: 0.24s;
 }
-/* Atravessa o ecrã da esquerda para a direita em loop contínuo. Entra
-   completamente (translateX(-100%), 100% da SUA PRÓPRIA largura, por
-   isso fica exato seja qual for o tamanho renderizado) e o ciclo
-   reinicia assim que o centro do foguete passa a borda direita — ou
-   seja, quando cerca de metade da imagem já saiu (translateX(100vw -
-   50%)) — eliminando o tempo morto sem esperar que desapareça de todo.
-   Mesma velocidade de antes. Só transform, nunca left. */
+
 .rocket {
   left: 0%;
   top: 106%;
@@ -681,14 +801,6 @@
   animation: rocket-flight 14s linear infinite;
 }
 .rocket__inner {
-  /* Antes havia uma rotação de 90deg aqui, e esta caixa estreita e alta
-     (51%/195%) compensava-a para o foguete ficar corretamente enquadrado.
-     Essa rotação já não existe — sem ela, a caixa fica maior que o
-     próprio ".rocket" e, por estar centrada (align-items:center), o
-     excesso (195% - 100% = 95%, metade para cada lado) transborda por
-     baixo do ".rocket" e da colagem, aumentando a altura total da
-     página para além do footer mesmo sem criar espaço antes dele.
-     Sem rotação, a caixa deve ocupar exatamente o próprio ".rocket". */
   width: 100%;
   height: 100%;
 }

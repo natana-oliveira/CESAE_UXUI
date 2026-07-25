@@ -16,6 +16,7 @@
     <!-- META -->
 
     <link rel="stylesheet" href="./CSS/styleGeneral.css" />
+    <link rel="stylesheet" href="./CSS/styleIndex.css" />
     <link rel="stylesheet" href="./CSS/styleMain.css" />
     <script src="./JS/script.js" defer></script>
     <script src="./JS/scriptMain.js" defer></script>
@@ -36,14 +37,12 @@
     </div>
     <!-- NAV BAR -->
     <nav id="navbar" class="pos-fixed d-flex align-items-center">
-      <div class="logo d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center">
         <span class="orbit br-50"></span>natana.o
-      </div>
+      </a>
       <ul class="nav-links d-flex" id="navLinks">
         <li>
-          <a href="./pages/work.html" class="pos-relative overflow-hidden"
-            >Work</a
-          >
+          <a href="#work" class="pos-relative overflow-hidden">Work</a>
         </li>
         <li>
           <a href="./pages/about.html" class="pos-relative overflow-hidden"
@@ -51,10 +50,7 @@
           >
         </li>
         <li>
-          <a
-            href="./pages/contact.html"
-            class="pos-relative overflow-hidden"
-            id=""
+          <a href="./pages/contact.html" class="pos-relative overflow-hidden"
             >Contacts</a
           >
         </li>
@@ -105,14 +101,17 @@
     <main class="pos-relative">
       <section
         id="hero"
-        class="hero d-flex pos-relative align-items-center overflow-hidden flex-column text-center"
+        class="hero d-flex pos-relative align-items-center overflow-hidden flex-column text-center justify-content-center"
       >
-        <div class="hero-content pos-relative">
+        <div class="hero-content pos-relative z-3">
           <div class="role">Product & UX/UI Designer</div>
           <h1><em>creative universe</em></h1>
         </div>
         <!-- Mãos -->
-        <div class="hands-container d-flex pos-absolute" id="handsContainer">
+        <div
+          class="hands-container d-flex pos-relative z-1"
+          id="handsContainer"
+        >
           <div class="hand left">
             <img src="./images/hero_leftHand.png" alt="" />
           </div>
@@ -121,15 +120,15 @@
           </div>
         </div>
         <div
-          class="scroll-hint d-flex pos-absolute flex-column align-items-center"
+          class="scroll-hint d-flex pos-absolute flex-column align-items-center z-3"
         >
           <span class="falling-star"></span>
           <p>Explorar</p>
         </div>
-        <div class="scroll-cue pos-absolute"></div>
+        <div class="scroll-cue pos-absolute z-3"></div>
       </section>
       <section class="main-showcase" aria-label="Universo de projetos">
-        <div class="collage">
+        <div class="collage" id="work">
           <!-- Grupo: Cesae Hub -->
           <div class="cesae-hub">
             <div class="cesae-hub__frame">
@@ -370,9 +369,9 @@
               alt="Contacto"
               onclick="toggleContactMenu()"
             />
-            <nav class="contacto__socials" aria-label="Redes sociais">
+            <nav class="contacto__socials z-3" aria-label="Redes sociais">
               <a
-                class="contacto__icon contacto__icon--linkedin"
+                class="contacto__icon contact-home pos-absolute d-flex align-items-center justify-content-center overflow-hidden contacto__icon--linkedin"
                 href="https://www.linkedin.com/in/natanaoliveira/"
                 target="_blank"
                 aria-label="LinkedIn"
@@ -386,7 +385,7 @@
                 </svg>
               </a>
               <a
-                class="contacto__icon contacto__icon--github"
+                class="contacto__icon contact-home pos-absolute d-flex align-items-center justify-content-center overflow-hidden contacto__icon--github"
                 href="https://github.com/natana-oliveira"
                 target="_blank"
                 aria-label="GitHub"
@@ -402,7 +401,7 @@
                 </svg>
               </a>
               <a
-                class="contacto__icon contacto__icon--behance"
+                class="contacto__icon contact-home pos-absolute d-flex align-items-center justify-content-center overflow-hidden contacto__icon--behance"
                 href="https://www.behance.net/natana_oliveira"
                 target="_blank"
                 aria-label="Behance"
@@ -416,7 +415,7 @@
                 </svg>
               </a>
               <a
-                class="contacto__icon contacto__icon--mail"
+                class="contacto__icon contact-home pos-absolute d-flex align-items-center justify-content-center overflow-hidden contacto__icon--mail"
                 href="mailto:natana.ao@gmail.com"
                 aria-label="Email"
               >
@@ -439,7 +438,9 @@
         </div>
       </section>
     </main>
-    <footer>
+    <footer
+      class="d-flex pos-relative z-1 align-items-center text-center justify-content-center"
+    >
       <p class="copyright">
         <em
           >Created by Natana Oliveira © 2026 - Made with curiosity and a little

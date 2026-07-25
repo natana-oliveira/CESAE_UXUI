@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../CSS/styleGeneral.css" />
+    <link rel="stylesheet" href="../CSS/styleMain.css" />
+    <script src="../JS/script.js" defer></script>
+    <script src="../JS/scriptMain.js" defer></script>
+    <link rel="icon" href="../images/favicon.ico" />
+    <title>Natana Oliveira — About Me</title>
+  </head>
+  <body>
+    <!-- BACKGROUND -->
+    <div class="backgroundPage">
+      <!-- Fundo cósmico -->
+      <div id="cosmic-bg" class="pos-fixed inset-0">
+        <div class="cloud pos-absolute br-50 c1"></div>
+        <div class="cloud pos-absolute br-50 c2"></div>
+        <div class="cloud pos-absolute br-50 c3"></div>
+      </div>
+      <!-- Campo de estrelas -->
+      <div id="stars-bg" class="pos-fixed inset-0 overflow-hidden"></div>
+    </div>
+    <!-- NAV BAR -->
+    <nav id="navbar" class="pos-fixed d-flex align-items-center">
+      <div class="logo d-flex align-items-center">
+        <span class="orbit br-50"></span>natana.o
+      </div>
+      <ul class="nav-links d-flex" id="navLinks">
+        <li>
+          <a href="../index.html#work" class="pos-relative overflow-hidden"
+            >Work</a
+          >
+        </li>
+        <li>
+          <a href="./about.html" class="pos-relative overflow-hidden"
+            >About Me</a
+          >
+        </li>
+        <li>
+          <a href="../index.html#contact" class="pos-relative overflow-hidden"
+            >Contacts</a
+          >
+        </li>
+      </ul>
+      <div class="d-flex align-items-center nav-right">
+        <button
+          id="nav-toggle"
+          class="d-flex align-items-center justify-content-center flex-column br-50"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <button
+          id="theme-toggle"
+          class="d-flex pos-relative overflow-hidden align-items-center justify-content-center br-50"
+        >
+          <svg
+            id="icon-moon"
+            class="theme-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            id="icon-sun"
+            class="theme-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <main></main>
+    <footer>
+      <p class="copyright">
+        <em
+          >Created by Natana Oliveira © 2026 - Made with curiosity and a little
+          bit of stardust ✦</em
+        >
+      </p>
+    </footer>
+  </body>
+</html>

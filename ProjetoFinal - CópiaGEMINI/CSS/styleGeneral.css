@@ -2,20 +2,16 @@
   --bg-dark: #05060d;
   --pink: #ff6fae;
   --gold: #ffcf7a;
-  --purple: #a855f7;
-  --green: #10b981;
-  --cyan: #06b6d4;
-  --sky-top: #aad5f6;
-  --white: #f4f4f4;
+  --sky-top: #bfe3ff;
+  --white: #ffffff;
   --ink: #eef0ff;
   --ink-dim: rgba(238, 240, 255, 0.62);
-  --muted: rgba(255, 255, 255, 0.5);
-  --line: rgba(255, 238, 238, 0.14);
-  --panel: rgba(255, 255, 255, 0.08);
-  --card-background: rgba(143, 143, 143, 0.1);
+  --line: rgba(238, 240, 255, 0.14);
+  --panel: rgba(255, 255, 255, 0.082);
 
   --ease: cubic-bezier(0.16, 0.84, 0.32, 1);
 
+  --font-family-base: "Lato", sans-serif;
   --font-family-detail: "Space Grotesk", sans-serif;
   --font-family-handwritten: "Nothing You Could Do", cursive;
 
@@ -26,23 +22,24 @@
 
   /* Tipografia (escala) */
   --fs-2xs: 0.68rem; /*ACHO QUE NÃO É usado*/
-  --fs-xs: 0.9rem; /*14.4 px*/
-  --fs-sm: 1rem; /*16 px*/
-  --fs-m: clamp(1rem, 1rem + 0.5vw, 1.125rem); /*18 px*/
-  --fs-h1: clamp(2.4rem, 6.4vw, 5.4rem); /* 38.4 /  86,4px */
+  --fs-xs: 0.9rem; /*14.4 rem*/
+  --fs-sm: 1rem;
+  --fs-h1: clamp(2.4rem, 6.4vw, 5.4rem);
 
+  /* Espaçamentos */
   --space-2: 8px;
   --space-3: 10px;
   --space-4: 14px;
   --space-5: 18px;
   --space-6: 20px;
   --space-7: 26px;
-  --space-8: 32px;
 
+  /* Tamanhos de componentes */
   --size-orbit: 14px;
   --size-toggle: 48px;
   --size-icon: 20px;
 
+  /* Layout (sobrescrito em tablet/mobile, desktop mantém os mesmos valores) */
   --nav-padding-y: var(--space-7);
   --nav-padding-x: 5vw;
 
@@ -64,11 +61,15 @@ html {
 }
 body {
   margin: 0;
-  font-family: var(--font-family-detail);
+  font-family: var(--font-family-base);
   color: var(--ink);
   background: var(--bg-dark);
   overflow-x: hidden;
   transition: color 0.8s var(--ease);
+  /* "Sticky footer": empurra o footer para o fundo quando o conteúdo é
+     mais curto que o ecrã, e cola-o logo a seguir ao conteúdo quando é
+     mais alto — sem alturas fixas. Os elementos de fundo/nav são
+     position:fixed, por isso não participam neste layout flex. */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -77,17 +78,11 @@ body.light {
   --ink: #1a1f36;
   --ink-dim: rgba(26, 31, 54, 0.65);
   --line: rgba(26, 31, 54, 0.12);
-  --muted: rgba(8, 24, 66, 0.71);
-  --card-background: rgba(175, 176, 200, 0.1);
-  --panel: rgba(10, 22, 49, 0.08);
+  --panel: rgba(255, 255, 255, 0.55);
 }
-
 /* Utilitárias */
 .d-flex {
   display: flex;
-}
-.d-grid {
-  display: grid;
 }
 .pos-fixed {
   position: fixed;
@@ -119,23 +114,11 @@ body.light {
 .text-center {
   text-align: center;
 }
-.pointer {
-  cursor: pointer;
-}
-.object-fit-cover {
-  object-fit: cover;
-}
-.z-1 {
-  z-index: 1;
-}
-.z-3 {
-  z-index: 3;
-}
 
 /* ---------- Fundo cósmico ---------- */
 #cosmic-bg {
   z-index: 0;
-
+  pointer-events: none;
   background:
     radial-gradient(120% 80% at 50% -10%, #171a3d 0%, var(--bg-dark) 55%),
     var(--bg-dark);
@@ -145,7 +128,7 @@ body.light #cosmic-bg {
   background: linear-gradient(
     180deg,
     var(--sky-top) 0%,
-    #ceeaff 35%,
+    #eaf6ff 35%,
     var(--white) 100%
   );
 }
@@ -237,8 +220,6 @@ nav#navbar.in {
   letter-spacing: 0.04em;
   gap: var(--space-5);
   font-family: var(--font-family-detail);
-  color: var(--muted);
-  text-decoration: none;
 }
 .logo .orbit {
   width: var(--size-orbit);
@@ -268,7 +249,7 @@ nav#navbar.in {
   text-decoration: none;
   font-size: var(--fs-sm);
   letter-spacing: 0.15em;
-  color: var(--muted);
+  color: var(--ink);
   padding: 9px 16px;
   display: inline-block;
   transition: color var(--t-fast);
@@ -303,8 +284,8 @@ nav#navbar.in {
   width: var(--size-toggle);
   height: var(--size-toggle);
   border: 1px solid var(--line);
-  background: var(--card-background);
-  color: var(--muted);
+  background: var(--panel);
+  color: var(--ink);
   cursor: pointer;
   transition: color var(--t-fast);
 }
@@ -320,7 +301,10 @@ body.light #icon-sun {
   height: var(--size-icon);
 }
 body.light #theme-toggle {
-  box-shadow: 0 4px 12px rgba(92, 92, 92, 0.08);
+  background: rgba(164, 164, 164, 0.097);
+  border-color: rgba(15, 19, 33, 0.119);
+  box-shadow: 0 4px 12px rgba(37, 37, 37, 0.08);
+  color: rgba(62, 62, 62, 0.623);
 }
 .nav-right {
   gap: var(--space-4);
@@ -351,7 +335,70 @@ body.light #theme-toggle {
 }
 main {
   z-index: 2;
+  /* Ocupa todo o espaço sobrante do body (flex-column), empurrando o
+     footer para o fundo sem espaço em branco nem sobreposição. */
   flex: 1 0 auto;
+}
+/* ---------- Hero ---------- */
+#hero {
+  min-height: 100vh;
+  justify-content: center;
+}
+.hands-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 10px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+.hand {
+  width: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    transform 4s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 3.5s ease;
+}
+.hand img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+.hand.left {
+  transform: translate3d(-100%, 0, 0);
+}
+.hand.right {
+  transform: translate3d(100%, 0, 0);
+}
+.hands-container.in .hand.left,
+.hands-container.in .hand.right {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.hands-container.exit .hand {
+  opacity: 0;
+}
+.hands-container.exit .hand.left {
+  transform: translate3d(-100%, -20%, 0);
+}
+.hands-container.exit .hand.right {
+  transform: translate3d(100%, -20%, 0);
+}
+
+.hero-content {
+  z-index: 3;
+  transition:
+    opacity 4.8s var(--ease) 0.8s,
+    transform 4.8s var(--ease) 0.8s;
+  opacity: 0;
+  transform: translateY(24px);
+  top: 200px;
+}
+.hero-content.in {
+  opacity: 1;
+  transform: translateY(0);
 }
 .role {
   font-size: var(--fs-xs);
@@ -359,54 +406,101 @@ main {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: var(--space-5);
+  font-family: var(--font-family-detail);
 }
 h1 {
   font-size: var(--fs-h1);
   line-height: 1.02;
   margin: 0 0 20px;
+  font-family: var(--font-family-detail);
 }
-h1 em,
-h2 em,
-h3 em {
+h1 em {
   font-style: normal;
   background: linear-gradient(90deg, var(--pink), var(--gold));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-body.light h1 em,
-body.light h2 em,
-body.light h3 em,
-body.light .copyright {
-  background: linear-gradient(90deg, var(--purple), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.scroll-hint {
+  bottom: 38px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  z-index: 3;
+  gap: var(--space-3);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  font-family: var(--font-family-detail);
+  transition: opacity 3.2s var(--ease) 4s;
+  opacity: 0;
 }
-h2 {
-  font-size: 50px;
-  margin-top: 0;
+.scroll-hint.in {
+  opacity: 1;
 }
-body.light .role {
-  color: var(--cyan);
+
+.falling-star {
+  width: 2px;
+  height: 26px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: fall 1.8s infinite var(--ease);
 }
+@keyframes fall {
+  0% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+.scroll-cue {
+  bottom: 3vh;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(#c9a14a, transparent);
+  opacity: 0.5;
+  z-index: 3;
+}
+
 /* ---------- Footer ---------- */
 footer {
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 40px 0 10px 0;
+  text-align: center;
   bottom: 0%;
 }
+
 .copyright {
   margin: 0;
+  font-family: var(--font-family-detail);
   font-size: var(--fs-xs);
+  line-height: 33px;
   letter-spacing: 0.05em;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
   background: linear-gradient(90deg, var(--pink), var(--gold));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/*  RESPONSIVO — TABLET (≤1024px) */
+/* =========================================================
+         RESPONSIVO — TABLET (≤1024px)
+         Ajusta apenas espaçamentos/tamanhos via variáveis;
+         o layout desktop permanece intocado acima deste breakpoint.
+      ========================================================= */
 @media (max-width: 1024px) {
   :root {
     --nav-padding-y: var(--space-4);
@@ -416,26 +510,33 @@ footer {
   .c3 {
     filter: blur(4px);
   }
+
   .hero-content {
     top: 40px;
   }
   .hands-container {
     padding-top: 0px;
   }
+
   .hand {
     width: 55%;
   }
 }
 
-/*   RESPONSIVO — MOBILE/TABLET ESTREITO (≤768px)*/
+/* =========================================================
+         RESPONSIVO — MOBILE/TABLET ESTREITO (≤768px)
+         Ativa o menu hamburger e reorganiza a navbar.
+      ========================================================= */
 @media (max-width: 768px) {
   :root {
     --nav-padding-x: 6vw;
     --size-toggle: 44px;
   }
+
   #nav-toggle {
     display: flex;
   }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -463,9 +564,18 @@ footer {
   .nav-links a {
     font-size: 1.1rem;
   }
+
+  .hand {
+    width: 65%;
+  }
+  .hands-container {
+    bottom: -4vh;
+  }
 }
 
-/*  RESPONSIVO — MOBILE PEQUENO (≤480px) */
+/* =========================================================
+         RESPONSIVO — MOBILE PEQUENO (≤480px)
+      ========================================================= */
 @media (max-width: 480px) {
   :root {
     --space-7: 18px;
@@ -473,5 +583,11 @@ footer {
   .role {
     letter-spacing: 0.25em;
     margin-bottom: var(--space-3);
+  }
+  .scroll-hint {
+    bottom: 22px;
+  }
+  .hand {
+    width: 78%;
   }
 }
