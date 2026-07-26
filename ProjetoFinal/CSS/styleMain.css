@@ -314,15 +314,16 @@
   cursor: pointer;
 }
 .black-hole-img {
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  height: 80%;
   object-fit: cover;
+  transform: rotate(15deg);
 }
 
 .black-hole-message {
   position: absolute;
   left: -32%;
-  top: -28%;
+  top: -36%;
   width: 63%;
   height: 30%;
   display: flex;
@@ -664,6 +665,10 @@
   transform: scale(1.02);
   filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
 }
+.black-hole-img:hover {
+  transform: rotate(15deg) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
 
 /* --------  Contact Menu --------  */
 .contacto {
@@ -722,34 +727,6 @@
   top: -6%;
   transition-delay: 0.16s;
 }
-
-.contacto__icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  background: radial-gradient(
-    120px 60px at var(--x, 50%) var(--y, 50%),
-    var(--glow-color),
-    transparent var(--glow-spread, 70%)
-  );
-  transition: opacity var(--t-fast);
-  --glow-spread: 30%;
-}
-
-.contacto__icon:hover::before {
-  opacity: 1;
-}
-
-.contacto__icon--linkedin svg,
-.contacto__icon--github svg,
-.contacto__icon--behance svg,
-.contacto__icon--mail svg {
-  width: var(--size-icon);
-  height: var(--size-icon);
-  display: block;
-}
-
 .contacto__icon--behance {
   left: -43%;
   top: 26%;
@@ -760,12 +737,22 @@
   top: 56%;
   transition-delay: 0s;
 }
-
 .contacto__icon img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.contacto__icon--linkedin svg,
+.contacto__icon--github svg,
+.contacto__icon--behance svg,
+.contacto__icon--mail svg {
+  width: var(--size-icon);
+  height: var(--size-icon);
+  display: block;
+}
+.contacto__icon {
+  color: var(--muted);
 }
 
 .contacto.is-open .contacto__icon {
@@ -794,15 +781,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: rocket-flight 14s linear infinite;
 }
 .rocket__inner {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
+  animation: rocket-flight 14s linear infinite;
 }
 .rocket__inner img {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: contain;
 }
@@ -889,11 +878,14 @@
 
 /* ----------------------- Mobile — até 767px ----------------------- */
 @media (max-width: 767px) {
+  .main-showcase {
+    padding-bottom: 20px;
+  }
+
   .collage {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: clamp(1.5rem, 6vw, 3rem); */
     gap: clamp(2.75rem, 6vw, 3rem);
     width: 100%;
     min-width: 0;
@@ -906,7 +898,6 @@
     position: relative;
     inset: auto;
   }
-
   .cesae-hub {
     order: 1;
     width: 95%;
@@ -1002,8 +993,8 @@
   }
   .rocket {
     order: 15;
-    /* width: 80%; */
     aspect-ratio: 1.952;
+    width: 70%;
   }
 
   .cv-message__arrow {
@@ -1045,13 +1036,20 @@
   }
 }
 @keyframes rocket-flight {
-  from {
-    /* Fora do ecrã à esquerda por completo (100% da própria largura) */
+  0% {
     transform: translateX(-100%);
+    opacity: 0.5;
   }
-  to {
-    /* Centro do foguete exatamente na borda direita do ecrã — metade
-       da imagem já ultrapassou o limite direito */
+  10% {
+    transform: translateX(calc(-95% + 10vw));
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(calc(-55% + 90vw));
+    opacity: 1;
+  }
+  100% {
     transform: translateX(calc(100vw - 50%));
+    opacity: 0.5;
   }
 }

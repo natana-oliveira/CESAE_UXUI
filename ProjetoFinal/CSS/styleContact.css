@@ -15,7 +15,7 @@
 }
 .contact .contact__card {
   width: 100%;
-  max-width: clamp(20rem, 65vw, 50rem);
+  max-width: clamp(50rem, 65vw, 50rem);
 }
 .contact__intro {
   gap: 0.625rem; /* 10px no Figma*/
@@ -40,6 +40,7 @@
 .contact-page__socials {
   gap: 3.125rem; /* 50px, igual à Homepage */
   width: 100%;
+  color: var(--muted);
 }
 .contact-page__icon {
   flex-shrink: 0;
@@ -47,10 +48,7 @@
   aspect-ratio: 1;
   background: var(--panel);
   border: 1px solid var(--line);
-  color: var(--ink);
-  transition:
-    transform 0.3s var(--ease),
-    color var(--t-fast);
+  transition: color var(--t-fast);
 }
 .contact-page__icon svg {
   position: relative;
@@ -59,29 +57,10 @@
   height: var(--size-icon);
   display: block;
 }
-.contact-page__icon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  background: radial-gradient(
-    120px 60px at 50% 50%,
-    var(--glow-color),
-    transparent 70%
-  );
-  transition: opacity var(--t-fast);
-}
-.contact-page__icon:hover {
-  transform: scale(1.02);
-}
 .contact-page__socials .contact-page__icon,
 .contact-page__socials .contact-page__icon:hover,
 .contact-page__socials .contact-page__icon:focus-visible {
-  color: var(--ink);
   text-decoration: none;
-}
-.contact-page__icon:hover::before {
-  opacity: 1;
 }
 .contact__photo {
   top: 0%;

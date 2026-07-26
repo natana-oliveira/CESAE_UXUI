@@ -14,6 +14,7 @@ const LIGHT_MODE_IMAGES = {
   "starBlack.png": "starLight.png",
   "rocket.png": "rocketLight.png",
   "earth.png": "earthLight.png",
+  "blackHole.png": "blackHoleLight.png",
 };
 const DARK_MODE_IMAGES = Object.fromEntries(
   Object.entries(LIGHT_MODE_IMAGES).map(([dark, light]) => [light, dark]),

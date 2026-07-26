@@ -277,7 +277,9 @@ nav#navbar.in {
   transition: color var(--t-fast);
 }
 .nav-links a::before,
-#theme-toggle::before {
+#theme-toggle::before,
+.contact-page__icon::before,
+.contacto__icon::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -291,14 +293,16 @@ nav#navbar.in {
   );
   transition: opacity var(--t-fast);
 }
-#theme-toggle::before {
-  --glow-spread: 30%;
-}
-.nav-links a:hover {
-  color: var(--ink);
+.nav-links a:hover,
+#theme-toggle:hover,
+.contact-page__icon:hover,
+.contacto__icon:hover {
+  color: var(--pink);
 }
 .nav-links a:hover::before,
-#theme-toggle:hover::before {
+#theme-toggle:hover::before,
+.contact-page__icon:hover::before,
+.contacto__icon:hover::before {
   opacity: 1;
 }
 #theme-toggle,
