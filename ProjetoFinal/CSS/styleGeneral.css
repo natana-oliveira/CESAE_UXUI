@@ -73,7 +73,7 @@ body {
   min-height: 100vh;
 }
 body.light {
-  --gold: #2478c6;
+  --gold: #2457c6;
   --pink: #a855f7;
   --ink: #1a1f36;
   --ink-dim: rgba(26, 31, 54, 0.65);
@@ -265,11 +265,14 @@ nav#navbar.in {
   padding: 0;
 }
 .nav-links a {
+  position: relative;
   text-decoration: none;
   font-size: var(--fs-sm);
   letter-spacing: 0.15em;
   color: var(--muted);
   padding: 9px 16px;
+  border-radius: 100px;
+  overflow: hidden;
   display: inline-block;
   transition: color var(--t-fast);
 }
@@ -279,18 +282,20 @@ nav#navbar.in {
   position: absolute;
   inset: 0;
   opacity: 0;
+  border-radius: 100px;
   background: radial-gradient(
     120px 60px at var(--x, 50%) var(--y, 50%),
-    var(--glow-color),
-    transparent var(--glow-spread, 70%)
+    color-mix(in srgb, var(--pink), transparent 70%),
+    color-mix(in srgb, var(--gold), transparent 70%),
+    transparent 80%
   );
   transition: opacity var(--t-fast);
 }
-.nav-links a::before {
-  border-radius: 100px;
-}
 #theme-toggle::before {
   --glow-spread: 30%;
+}
+.nav-links a:hover {
+  color: var(--ink);
 }
 .nav-links a:hover::before,
 #theme-toggle:hover::before {

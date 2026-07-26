@@ -12,6 +12,8 @@ const LIGHT_MODE_IMAGES = {
   "arrowDoodleBlack.png": "arrowDoodleLight.png",
   "spark.png": "sparkLight.png",
   "starBlack.png": "starLight.png",
+  "rocket.png": "rocketLight.png",
+  "earth.png": "earthLight.png",
 };
 const DARK_MODE_IMAGES = Object.fromEntries(
   Object.entries(LIGHT_MODE_IMAGES).map(([dark, light]) => [light, dark]),
@@ -64,6 +66,15 @@ document.addEventListener("click", (e) => {
 
 window.addEventListener("resize", () => {
   if (window.innerWidth > 768) closeMobileMenu();
+});
+
+/* ---------- Brilho do hover a seguir o cursor ---------- */
+navLinks.querySelectorAll("a").forEach((a) => {
+  a.addEventListener("mousemove", (e) => {
+    const r = a.getBoundingClientRect();
+    a.style.setProperty("--x", e.clientX - r.left + "px");
+    a.style.setProperty("--y", e.clientY - r.top + "px");
+  });
 });
 
 /* ---------- Criar as estrelas dinamicas ---------- */
