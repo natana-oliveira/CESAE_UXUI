@@ -2,9 +2,38 @@ let body = document.querySelector("body");
 let themeBtn = document.getElementById("theme-toggle");
 
 /* ---------- Modo Noturno ---------- */
+const LIGHT_MODE_IMAGES = {
+  "frameCesaeBlack.svg": "frameCesaeLight.svg",
+  "coordinateBlack.png": "coordinateLight.png",
+  "starsBlack.png": "starsLight.png",
+  "disco.png": "discoLight.png",
+  "gallery.png": "galleryLight.png",
+  "complexJupiterBG.png": "complexJupiterBGLight.png",
+  "arrowDoodleBlack.png": "arrowDoodleLight.png",
+  "spark.png": "sparkLight.png",
+  "starBlack.png": "starLight.png",
+};
+const DARK_MODE_IMAGES = Object.fromEntries(
+  Object.entries(LIGHT_MODE_IMAGES).map(([dark, light]) => [light, dark]),
+);
+
+function swapThemeImages(isLight) {
+  const map = isLight ? LIGHT_MODE_IMAGES : DARK_MODE_IMAGES;
+  document.querySelectorAll("img").forEach((img) => {
+    const src = img.getAttribute("src");
+    const filename = src && src.split("/").pop();
+    if (filename && map[filename]) {
+      img.setAttribute("src", src.replace(filename, map[filename]));
+    }
+  });
+}
+
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("light");
+  swapThemeImages(document.body.classList.contains("light"));
 });
+
+swapThemeImages(document.body.classList.contains("light"));
 
 /* ---------- Menu mobile (hamburger) ---------- */
 const navToggle = document.getElementById("nav-toggle");
@@ -13,15 +42,24 @@ const navLinks = document.getElementById("navLinks");
 function closeMobileMenu() {
   navLinks.classList.remove("open");
   navToggle.setAttribute("aria-expanded", "false");
+  navToggle.setAttribute("aria-label", "Abrir menu");
 }
 
 navToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
 });
 
 navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeMobileMenu);
+});
+
+document.addEventListener("click", (e) => {
+  const isOpen = navLinks.classList.contains("open");
+  if (isOpen && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+    closeMobileMenu();
+  }
 });
 
 window.addEventListener("resize", () => {

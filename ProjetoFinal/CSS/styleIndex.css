@@ -1,10 +1,26 @@
-/* ---------- Hero ---------- */
 #hero {
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-content: center;
+  padding-top: calc(
+    var(--nav-padding-y) * 2 + var(--size-toggle) + var(--space-6)
+  );
 }
+.role {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-5);
+}
+
 .hands-container {
+  grid-area: 1 / 1;
+  align-self: start;
   width: 100%;
-  padding-top: 10px;
+  margin-top: clamp(18px, calc(54px - 1.8vw), 50px);
   align-items: flex-end;
 }
 .hand {
@@ -42,13 +58,16 @@
   transform: translate3d(100%, -20%, 0);
 }
 .hero-content {
+  grid-area: 1 / 1;
+  align-self: start;
   transition:
     opacity 4.8s var(--ease) 0.8s,
     transform 4.8s var(--ease) 0.8s;
   opacity: 0;
   transform: translateY(24px);
-  top: 200px;
+  padding-top: 60px;
 }
+
 .hero-content.in {
   opacity: 1;
   transform: translateY(0);
@@ -61,7 +80,7 @@
   font-size: var(--fs-2xs);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--ink-dim);
+  color: var(--muted);
   font-family: var(--font-family-detail);
   transition: opacity 3.2s var(--ease) 4s;
   opacity: 0;
@@ -104,21 +123,25 @@ body.light .falling-star {
 body.light .scroll-cue {
   background: linear-gradient(#06b6d4, transparent);
 }
-
-@media (max-width: 768px) {
-  rgba(6, 181, 212, 0.411) .hand {
-    width: 65%;
-  }
-  .hands-container {
-    bottom: -4vh;
+@media (max-width: 1024px) {
+  .hero-content {
+    padding-top: 0px;
   }
 }
-
+@media (max-width: 768px) {
+  .hand {
+    width: 65%;
+  }
+}
 @media (max-width: 480px) {
   .scroll-hint {
     bottom: 22px;
   }
   .hand {
     width: 78%;
+  }
+  .role {
+    letter-spacing: 0.25em;
+    margin-bottom: var(--space-3);
   }
 }

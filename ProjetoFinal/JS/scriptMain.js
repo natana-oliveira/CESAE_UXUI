@@ -79,3 +79,10 @@ if (aboutMePhoto) {
 function toggleAboutMeImage() {
   if (aboutMePhoto) aboutMePhoto.classList.toggle("is-revealed");
 }
+
+const planetPorta = document.querySelector(".planet-porta");
+if (planetPorta && window.matchMedia("(hover: none)").matches) {
+  planetPorta.addEventListener("click", () => {
+    planetPorta.classList.toggle(OPEN_CLASS);
+  });
+}

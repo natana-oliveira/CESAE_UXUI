@@ -105,21 +105,23 @@
   top: 38%;
   height: 62%;
   object-fit: cover;
+  --jupiter-hover-scale: 1;
   transition:
-    transform 0.4s var(--ease),
+    --jupiter-hover-scale 0.4s var(--ease),
     filter 0.4s var(--ease);
   animation: complex-jupiter-pulse 12s ease-in-out infinite;
+  will-change: transform;
+}
+@property --jupiter-hover-scale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
 }
 .dab__gato {
   position: absolute;
   left: 28%;
   height: 50%;
   object-fit: cover;
-  /* O hover existente (".dab:hover .dab__gato") também anima "transform",
-     e uma animação CSS sobrepõe-se sempre a uma regra normal na mesma
-     propriedade — por isso o hover já não define "transform" diretamente
-     (ver mais abaixo). Em vez disso muda esta variável, que os keyframes
-     já leem em cada frame, compondo os dois sem reiniciar a animação. */
   --gato-hover-scale: 1;
   transition:
     --gato-hover-scale 0.4s var(--ease),
@@ -127,17 +129,11 @@
   animation: gato-float 6.5s ease-in-out infinite;
   will-change: transform;
 }
-/* Regista a variável como <number> para poder fazer transition suave
-   (sem isto, mudar a variável no hover seria instantâneo/brusco). */
 @property --gato-hover-scale {
   syntax: "<number>";
   inherits: true;
   initial-value: 1;
 }
-/* Percurso orgânico e irregular (cima -> diagonal sup. direita -> centro
-   -> diagonal inf. esquerda -> baixo -> centro), com leve rotação ±2°.
-   scale(var(--gato-hover-scale)) mantém o hover a compor-se com o
-   movimento em vez de o substituir. */
 @keyframes gato-float {
   0% {
     transform: translate(0, 0) rotate(0deg) scale(var(--gato-hover-scale));
@@ -207,9 +203,6 @@
 }
 .vinho__earth-inner {
   height: 80%;
-  /* Sem hover próprio — a animação pode controlar "transform" livremente.
-     Cada keyframe repete a rotação base (rotate(14deg)) para não a
-     perder enquanto a animação está ativa. */
   transform: rotate(14deg);
   animation: earth-float 7s ease-in-out infinite;
   will-change: transform;
@@ -235,8 +228,6 @@
 }
 .vinho__saturno-inner {
   height: 80%;
-  /* Sem hover próprio. "animation-delay" negativo arranca o ciclo já a
-     meio, para nunca ficar sincronizado com o da Terra. */
   transform: rotate(163.89deg) scaleY(-1);
   animation: saturno-float 8s ease-in-out infinite;
   animation-delay: -3s;
@@ -275,11 +266,6 @@
   left: 21.466%;
   height: 100%;
   object-fit: cover;
-  /* O hover existente (".galeria-group__frame:hover", mais abaixo)
-     também animava "transform" diretamente — e uma animação CSS
-     sobrepõe-se sempre a uma regra normal na mesma propriedade. Por
-     isso o hover passa a mudar só esta variável (ver "gato-hover-scale"
-     para o mesmo padrão), que os keyframes já leem em cada frame. */
   --frame-hover-scale: 1;
   transition:
     --frame-hover-scale 0.4s var(--ease),
@@ -292,19 +278,16 @@
   inherits: true;
   initial-value: 1;
 }
-/* Pequeno gesto: desloca-se ligeiramente para a direita e para baixo,
-   com uma leve rotação, e regressa devagar — como a mão a ajustar o
-   quadro. scale(var(--frame-hover-scale)) compõe-se com o hover. */
 @keyframes frame-gesture {
   0%,
   100% {
     transform: translate(0, 0) rotate(0deg) scale(var(--frame-hover-scale));
   }
   45% {
-    transform: translate(1.5%, 1%) rotate(1deg) scale(var(--frame-hover-scale));
+    transform: translate(2%, 1.5%) rotate(6deg) scale(var(--frame-hover-scale));
   }
   75% {
-    transform: translate(0.6%, 0.4%) rotate(0.4deg)
+    transform: translate(1.1%, 0.9%) rotate(0.9deg)
       scale(var(--frame-hover-scale));
   }
 }
@@ -500,7 +483,7 @@
   cx: 0px;
   cy: 0px;
   fill: none;
-  stroke: #ffce7a9c;
+  stroke: var(--pink);
   animation-duration: var(--wave-duration);
   animation-name: planet-porta-ripple;
   animation-iteration-count: infinite;
@@ -512,7 +495,7 @@
 @keyframes planet-porta-ripple {
   from {
     r: 0;
-    opacity: 1;
+    opacity: 0.5;
   }
   to {
     r: 100px;
@@ -546,11 +529,19 @@
 .planet-porta__door-img--open {
   opacity: 0;
 }
-.planet-porta__door:hover .planet-porta__door-img--open {
+.planet-porta.is-open .planet-porta__door-img--open {
   opacity: 1;
 }
-.planet-porta__door:hover .planet-porta__door-img--closed {
+.planet-porta.is-open .planet-porta__door-img--closed {
   opacity: 0;
+}
+@media (hover: hover) {
+  .planet-porta__door:hover .planet-porta__door-img--open {
+    opacity: 1;
+  }
+  .planet-porta__door:hover .planet-porta__door-img--closed {
+    opacity: 0;
+  }
 }
 
 /* ---------------    Envelope  -------------- */
@@ -627,7 +618,7 @@
   color: var(--pink);
 }
 
-/* --------------------  Grupo: Fly me to the moon -------------------- */
+/* -------  Grupo: Fly me to the moon ----------- */
 .fly-me {
   left: 8%;
   top: 95%;
@@ -641,22 +632,19 @@
 }
 
 /* -------- Hover "aura galáctica" ------------- */
+.surf-sway:hover .surf-sway__surfista,
+.black-hole-img:hover,
+.galeria-group__frame:hover,
+.maternar img:hover,
+.contacto__trigger:hover,
+.about-me__photo-crop:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
 .cesae-hub__frame-inner:hover {
   transform: rotate(-14deg) scale(1.02);
   filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
 }
-.surf-sway:hover .surf-sway__surfista,
-.dab:hover .dab__jupiter,
-.black-hole-img:hover,
-.maternar img:hover,
-.contacto__trigger:hover,
-.galeria-group__frame:hover,
-.dab:hover .dab__gato,
-.about-me__photo-crop:hover {
-  --gato-hover-scale: 1.02;
-  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
-}
-
 .vinho__woman-inner:hover {
   transform: rotate(-7deg) scale(1.02);
   filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
@@ -669,6 +657,14 @@
   transform: rotate(-10deg) scale(1.02);
   filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
 }
+.dab:hover .dab__jupiter,
+.dab:hover .dab__gato {
+  --jupiter-hover-scale: 1.02;
+  --gato-hover-scale: 1.02;
+  transform: scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 0 0.95rem var(--glow-color));
+}
+
 /* --------  Contact Menu --------  */
 .contacto {
   right: 0%;
@@ -811,7 +807,6 @@
   object-fit: contain;
 }
 
-/* Regra comum a todas as imagens dentro de wrappers "-inner" rodados */
 .cesae-hub__frame-inner img,
 .cesae-hub__astronaut-inner img,
 .coordenadas__inner img,
@@ -827,7 +822,6 @@
   object-fit: cover;
 }
 
-/* Imagens "soltas" sem wrapper dedicado (sem rotação nem recorte especial) */
 .surf-sway__surfista,
 .surf-sway__stars,
 .dab__jupiter,
@@ -840,23 +834,7 @@
   display: block;
 }
 
-/* =========================================================================
-   RESPONSIVIDADE — Tablet e Mobile (Figma: Homepage > Tablet / Mobile)
-   =========================================================================
-   Cada grupo (.cesae-hub, .vinho, etc.) tem os seus elementos internos
-   posicionados em % do PRÓPRIO grupo, não da colagem toda — por isso só é
-   preciso ajustar a posição/tamanho de cada grupo por breakpoint; o
-   conteúdo interno reposiciona-se sozinho. Rotações, opacidades e
-   object-fit não são repetidos aqui: continuam herdados das regras do
-   Desktop acima.
-   ========================================================================= */
-
-/* -------------------------------------------------------------------------
-   Tablet (portrait e landscape) — 768px a 1024px
-   Mesma técnica do Desktop (colagem em posições absolutas); só a
-   proporção do "canvas" e a posição/tamanho de cada grupo mudam, com base
-   no frame "Tablet" do Figma (área "Main": 834 x 1360).
-   ------------------------------------------------------------------------- */
+/* ------- Tablet (portrait e landscape) — 768px a 1024px -- */
 @media (min-width: 768px) and (max-width: 1024px) {
   .collage {
     aspect-ratio: 834 / 1360;
@@ -1019,6 +997,8 @@
     order: 14;
     width: 50%;
     aspect-ratio: 0.75;
+    align-self: flex-end;
+    right: calc(50% - 50vw);
   }
   .rocket {
     order: 15;
@@ -1044,13 +1024,7 @@
   }
 }
 
-/* =========================================================================
-   Animations
-   =========================================================================
-   Todas as animações contínuas (@keyframes) usadas nesta secção. As
-   transições de abertura/fecho (mensagens, menu de contacto) vivem junto
-   de cada componente, acima — aqui ficam só os "loops" próprios. Todas
-   usam apenas transform/opacity, nunca top/left. */
+/* ======    Animations ==== */
 @keyframes complex-jupiter-spin {
   from {
     transform: rotate(0deg);
@@ -1062,11 +1036,11 @@
 @keyframes complex-jupiter-pulse {
   0%,
   100% {
-    transform: scale(1);
+    transform: scale(calc(1 * var(--jupiter-hover-scale)));
     /* opacity: 0.65; */
   }
   50% {
-    transform: scale(1.06);
+    transform: scale(calc(1.06 * var(--jupiter-hover-scale)));
     /* opacity: 0.85; */
   }
 }

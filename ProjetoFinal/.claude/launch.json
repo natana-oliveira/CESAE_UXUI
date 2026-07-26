@@ -3,8 +3,12 @@
   "configurations": [
     {
       "name": "live-server",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["live-server", "--no-browser"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:\\Users\\natan\\AppData\\Local\\Temp\\claude\\C--Users-natan-OneDrive-Documentos-GitHub-CESAE-UXUI-ProjetoFinal\\32698d5b-8dbb-48fb-84dd-9f0aac96edf1\\scratchpad\\static-server.js",
+        ".",
+        "5501"
+      ],
       "port": 5501,
       "autoPort": true
     }
