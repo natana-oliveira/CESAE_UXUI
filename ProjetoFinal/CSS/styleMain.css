@@ -3,21 +3,21 @@
   width: 100%;
   padding-bottom: calc(13% * 2207 / 1440);
 }
-
 .collage {
   position: relative;
   width: 100%;
   min-width: 45rem;
   aspect-ratio: 1440 / 2207;
 }
-
 .collage > * {
   position: absolute;
 }
 .black-hole.is-open,
 .envelope.is-open,
 .contacto.is-open {
-  z-index: 20;
+  z-index: var(
+    --z-panel-open
+  ); /* era "20" — mesmo valor, agora nomeado no :root */
 }
 
 /* -------------  Grupo: Cesae Hub  ---------------- */
@@ -322,7 +322,7 @@
   position: absolute;
   left: -32%;
   top: -36%;
-  width: 63%;
+  width: 68%;
   height: 30%;
   display: flex;
   align-items: flex-start;
@@ -348,8 +348,8 @@
 .black-hole-message__text {
   margin: 0;
   font-family: var(--font-family-handwritten);
-  font-size: clamp(1.25rem, 2.6vw, 1.4rem);
-  line-height: 1.5;
+  font-size: var(--fs-2xl);
+  line-height: var(--leading-normal); /* era "1.5" — mesmo valor */
   color: var(--gold);
   opacity: 55%;
   text-align: center;
@@ -449,7 +449,9 @@
   left: 18%;
   top: 23%;
   height: 60%;
-  border-radius: 50%;
+  border-radius: var(
+    --radius-circle
+  ); /* era "50%" — mesmo valor, agora token */
   object-fit: cover;
   opacity: 0.75;
   animation: complex-jupiter-spin 160s linear infinite;
@@ -606,8 +608,8 @@
 }
 .cv-message__link {
   font-family: var(--font-family-handwritten);
-  font-size: clamp(1.4rem, 2.6vw, 1.4rem);
-  line-height: 1.5;
+  font-size: var(--fs-2xl);
+  line-height: var(--leading-normal); /* era "1.5" — mesmo valor */
   color: var(--gold);
   opacity: 55%;
   text-decoration: none;
@@ -699,21 +701,11 @@
   width: 24%;
   aspect-ratio: 1;
   opacity: 0;
-  border-radius: 50%;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  color: var(--ink);
-}
-.contacto-home {
-  transform: translateY(-1.4em);
-  pointer-events: none;
-  transition:
-    opacity 0.3s ease-in,
-    transform 0.3s ease-in;
-  transition:
-    opacity 0.3s ease-in,
-    transform 0.3s ease-in,
-    color var(--t-fast);
+  border-radius: var(
+    --radius-circle
+  ); /* era "50%" — mesmo valor, agora token */
+  background: var(--card-background);
+  border: 1px solid var(--overlay-white-15);
 }
 .contacto__icon--linkedin {
   left: -3%;
@@ -750,7 +742,7 @@
   display: block;
 }
 .contacto__icon {
-  color: var(--muted);
+  color: var(--overlay-white-50);
 }
 
 .contacto.is-open .contacto__icon {
@@ -801,8 +793,7 @@
 .vinho__earth-inner img,
 .vinho__saturno-inner img,
 .galeria-group__paper-star-inner img,
-.foody__disco-inner img,
-.fly-me__ribbon-inner img {
+.foody__disco-inner img {
   display: block;
   width: 100%;
   height: 100%;
@@ -821,7 +812,6 @@
   display: block;
 }
 
-/* ------- Tablet (portrait e landscape) — 768px a 1024px -- */
 @media (min-width: 768px) and (max-width: 1024px) {
   .collage {
     aspect-ratio: 834 / 1360;
@@ -877,7 +867,7 @@
 /* ----------------------- Mobile — até 767px ----------------------- */
 @media (max-width: 767px) {
   .main-showcase {
-    padding-bottom: 20px;
+    padding-bottom: var(--space-6); /* era "20px" — mesmo valor, agora token */
   }
 
   .collage {
@@ -925,11 +915,9 @@
     order: 6;
     width: 78%;
     aspect-ratio: 1.11;
-    margin: 30px 0;
+    margin: var(--space-12) 0; /* era "30px 0" — mesmo valor, agora token */
   }
-
   .black-hole-message {
-    /* left: 50%; */
     left: 30%;
     top: auto;
     bottom: 92%;
@@ -940,12 +928,11 @@
   .black-hole.is-open .black-hole-message {
     transform: translateX(-50%) scale(1);
   }
-
   .galeria-group {
     order: 7;
     width: 75%;
     aspect-ratio: 0.903;
-    margin: 30px 0;
+    margin: var(--space-12) 0; /* era "30px 0" — mesmo valor, agora token */
   }
   .vinho {
     order: 8;
@@ -956,13 +943,13 @@
     order: 9;
     width: 58%;
     aspect-ratio: 1.069;
-    margin: 30px 0;
+    margin: var(--space-12) 0; /* era "30px 0" — mesmo valor, agora token */
   }
   .complex-jupiter {
     order: 10;
     width: 96%;
     aspect-ratio: 1.078;
-    margin: 30px 0;
+    margin: var(--space-12) 0; /* era "30px 0" — mesmo valor, agora token */
   }
   .planet-porta {
     order: 11;
@@ -974,7 +961,6 @@
     width: 75%;
     aspect-ratio: 0.894;
   }
-
   .fly-me {
     order: 13;
     width: 70%;
@@ -994,11 +980,9 @@
     aspect-ratio: 1.952;
     width: 70%;
   }
-
   .cv-message__arrow {
     height: 75%;
   }
-
   .cv-message {
     left: 65%;
     top: auto;

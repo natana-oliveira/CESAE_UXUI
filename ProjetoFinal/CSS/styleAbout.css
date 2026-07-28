@@ -6,23 +6,23 @@ body.page-about #navbar {
 .about-me,
 .skills,
 .contact {
-  margin: 120px 80px;
+  margin: var(--space-17) var(--space-15); /* era "120px 80px" — mesmo valor */
 }
 .about-me__content {
-  gap: 5rem;
+  gap: var(--space-15); /* era "5rem" (80px) — mesmo valor, agora token */
 }
 .glass-card {
-  padding: 1.75rem;
+  padding: var(--space-11); /* era "1.75rem" (28px) — mesmo valor */
   background: var(--card-background);
-  border: 1px solid var(--panel);
+  border: 1px solid var(--overlay-white-08);
   border-radius: 1.75rem;
 }
 .glass-card p {
   margin: 0;
-  color: var(--muted);
+  color: var(--overlay-white-50);
   font-size: var(--fs-m);
-  line-height: 1.66;
-  padding-bottom: 8px;
+  line-height: var(--leading-relaxed); /* era "1.66" — mesmo valor */
+  padding-bottom: var(--space-2); /* era "8px" — mesmo valor, agora token */
 }
 .glass-card a {
   color: inherit;
@@ -79,13 +79,13 @@ body.page-about #navbar {
 .about-me__message-text {
   width: 7.0625rem;
   font-family: var(--font-family-handwritten);
-  font-size: 1.375rem;
-  line-height: 1.36;
+  font-size: var(--fs-2xl);
+  line-height: var(--leading-snug); /* era "1.36" — mesmo valor */
   color: var(--gold);
   opacity: 55%;
 }
 .skills h3 {
-  font-size: 30px;
+  font-size: var(--fs-3xl);
   margin-top: 0;
 }
 .skills > .section-heading {
@@ -93,7 +93,7 @@ body.page-about #navbar {
 }
 .cards-row {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
+  gap: var(--space-6); /* era "1.25rem" (20px) — mesmo valor, agora token */
 }
 .tech-card {
   transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
@@ -133,47 +133,47 @@ body.page-about #navbar {
 .tc-ux::before {
   background: radial-gradient(
     circle at 0% 0%,
-    rgba(6, 182, 212, 0.18),
+    color-mix(in srgb, var(--cyan), transparent 82%),
     transparent 65%
   );
 }
 .tc-ui::before {
   background: radial-gradient(
     circle at 0% 0%,
-    rgba(168, 85, 247, 0.18),
+    color-mix(in srgb, var(--purple), transparent 82%),
     transparent 65%
   );
 }
 .tc-motion::before {
   background: radial-gradient(
     circle at 0% 0%,
-    rgba(59, 130, 246, 0.18),
+    color-mix(in srgb, var(--blue), transparent 82%),
     transparent 65%
   );
 }
 .tc-dev::before {
   background: radial-gradient(
     circle at 0% 0%,
-    rgba(236, 72, 153, 0.18),
+    color-mix(in srgb, var(--magenta), transparent 82%),
     transparent 65%
   );
 }
 .tech-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--overlay-white-15);
+  background: var(--overlay-white-08);
   box-shadow: 0 10px 30px rgba(48, 48, 48, 0.155);
 }
 .tech-card:hover::before {
   opacity: 1;
 }
 .tc-icon {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-9); /* era "1rem" (16px) — mesmo valor */
   width: 10%;
   display: inline-block;
   animation: spin-slow 8s linear infinite;
-  color: var(--muted);
+  color: var(--overlay-white-50);
 }
 @keyframes spin-slow {
   to {
@@ -181,23 +181,28 @@ body.page-about #navbar {
   }
 }
 .tech-card h3 {
-  font-size: 1.2rem;
+  font-size: var(--fs-xl);
   margin-bottom: 0.8rem;
-  color: var(--muted);
+  color: var(--overlay-white-50);
+}
+.tech-card-content {
+  padding-bottom: var(--space-6);
 }
 .tech-card p {
-  font-size: 1rem;
-  color: var(--muted);
+  font-size: var(--fs-sm);
+  color: var(--overlay-white-50);
   font-family: var(--font-family-detail);
 }
 .tc-progress {
   margin-top: auto;
   height: 3px;
-  background: var(--panel);
+  background: var(--overlay-white-08);
 }
 .tc-bar {
   height: 100%;
-  border-radius: 100px;
+  border-radius: var(
+    --radius-pill
+  ); /* era "100px" — mesmo valor, agora token */
   animation: bar-fill 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
 }
 @keyframes bar-fill {
@@ -209,22 +214,22 @@ body.page-about #navbar {
   }
 }
 .tc-ux .tc-bar {
-  background: linear-gradient(90deg, var(--cyan), #3b82f6);
+  background: var(--gradient-ux);
 }
 .tc-ui .tc-bar {
-  background: linear-gradient(90deg, var(--purple), #ec4899);
+  background: var(--gradient-ui);
 }
 .tc-motion .tc-bar {
-  background: linear-gradient(90deg, #3b82f6, var(--cyan));
+  background: var(--gradient-motion);
 }
 .tc-dev .tc-bar {
-  background: linear-gradient(90deg, #ec4899, #f59e0b);
+  background: var(--gradient-dev);
 }
 .marquee-section {
-  margin-top: 100px;
-  padding: 2.5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: var(--space-16); /* era "100px" — mesmo valor, agora token */
+  padding: var(--space-13) 0; /* era "2.5rem" (40px) — mesmo valor */
+  border-top: 1px solid var(--overlay-white-08);
+  border-bottom: 1px solid var(--overlay-white-08);
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -257,44 +262,43 @@ body.page-about #navbar {
 }
 .neon-word {
   font-family: var(--font-family-detail);
-  font-size: 1.15rem;
-  letter-spacing: 0.22em;
+  font-size: var(--fs-m);
+  letter-spacing: var(--tracking-normal); /* era "0.22em" — mesmo valor */
 }
 .neon-purple {
-  color: #bf93ee;
+  color: var(--purple-tint);
   text-shadow:
-    0 0 12px rgba(168, 85, 247, 0.9),
-    0 0 40px rgba(168, 85, 247, 0.4);
+    0 0 12px color-mix(in srgb, var(--purple), transparent 10%),
+    0 0 40px color-mix(in srgb, var(--purple), transparent 60%);
 }
 .neon-blue {
-  color: #93c5fd;
+  color: var(--blue-tint);
   text-shadow:
-    0 0 12px rgba(59, 130, 246, 0.9),
-    0 0 40px rgba(59, 130, 246, 0.4);
+    0 0 12px color-mix(in srgb, var(--blue), transparent 10%),
+    0 0 40px color-mix(in srgb, var(--blue), transparent 60%);
 }
 .neon-pink {
-  color: var(--pink);
+  color: var(--magenta);
   text-shadow:
-    0 0 12px rgba(236, 72, 153, 0.9),
-    0 0 40px rgba(236, 72, 153, 0.4);
+    0 0 12px color-mix(in srgb, var(--magenta), transparent 10%),
+    0 0 40px color-mix(in srgb, var(--magenta), transparent 60%);
 }
-.neon-green {
-  color: #fac365;
+.neon-yellow {
+  color: var(--amber);
   text-shadow:
     0 0 12px rgba(185, 171, 16, 0.9),
     0 0 40px rgba(185, 160, 16, 0.4);
 }
 .dot {
-  margin: 0 2.5rem;
-  color: var(--ink-dim);
-  font-size: 0.75rem;
+  margin: 0 var(--space-13); /* era "2.5rem" (40px) — mesmo valor */
+  color: var(--overlay-white-50);
+  font-size: var(--fs-sm);
 }
 
-/* Tablet Landscape (De 769px até 1024px) */
 @media screen and (max-width: 1024px) {
   .about-me,
   .skills {
-    margin: 120px 80px;
+    margin: var(--space-17) var(--space-15); /* era "120px 80px" */
   }
   .contact {
     flex-direction: column;
@@ -314,29 +318,21 @@ body.page-about #navbar {
     max-width: 21.9375rem;
     align-self: center;
   }
-  .about-me h2,
-  .contact h2 {
-    font-size: 1.75rem;
-  }
   .marquee-section {
-    margin-top: 50px;
+    margin-top: var(--space-14); /* era "50px" — mesmo valor, agora token */
   }
 }
-
-/* ====== MOBILE PEQUENO (≤480px)
-======== */
 
 @media screen and (max-width: 480px) {
   .about-me,
   .skills,
   .contact {
-    margin: 120px 20px;
+    margin: var(--space-17) var(--space-6); /* era "120px 20px" */
   }
   .contact {
     margin-bottom: 0;
   }
   .glass-card {
-    padding: 1.25rem;
-    font-size: 1rem;
+    padding: var(--space-6); /* era "1.25rem" (20px) — mesmo valor */
   }
 }

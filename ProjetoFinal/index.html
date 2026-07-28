@@ -6,11 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Nothing+You+Could+Do&display=swap"
       rel="stylesheet"
     />
     <!-- META -->
@@ -100,7 +96,7 @@
     <main class="pos-relative">
       <section
         id="hero"
-        class="hero d-flex pos-relative align-items-center overflow-hidden flex-column text-center justify-content-center"
+        class="hero d-grid pos-relative overflow-hidden flex-column text-center"
       >
         <div class="hero-content pos-relative z-3">
           <div class="role">Product & UX/UI Designer</div>
@@ -111,10 +107,20 @@
           id="handsContainer"
         >
           <div class="hand left">
-            <img src="./images/hero_leftHand.png" alt="" />
+            <img
+              src="./images/hero_leftHand.png"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
           </div>
           <div class="hand right">
-            <img src="./images/hero_rightHand.png" alt="" />
+            <img
+              src="./images/hero_rightHand.png"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
           </div>
         </div>
         <div
@@ -133,12 +139,21 @@
                 class="cesae-hub__frame-inner"
                 href="https://www.figma.com/proto/mgKX76jMK7cxZohMOxwKzy/Untitled?node-id=1-2764&p=f&viewport=-88%2C-616%2C0.09&t=TGjTHqQn2fTSTY17-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A6774&page-id=0%3A1"
                 target="_blank"
-                ><img src="./images/frameCesaeBlack.svg" alt="Cesae Hub"
+                ><img
+                  src="./images/frameCesaeBlack.svg"
+                  alt="Cesae Hub"
+                  loading="lazy"
+                  decoding="async"
               /></a>
             </div>
             <div class="cesae-hub__astronaut">
               <div class="cesae-hub__astronaut-inner">
-                <img src="./images/astronaut.png" alt="" />
+                <img
+                  src="./images/astronaut.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
@@ -148,12 +163,16 @@
                 class="surf-sway__surfista"
                 src="./images/surfer.png"
                 alt="Surfista"
+                loading="lazy"
+                decoding="async"
               />
             </a>
             <img
               class="surf-sway__stars"
               src="./images/starsBlack.png"
               alt=""
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="dab">
@@ -163,16 +182,25 @@
               ><img
                 class="dab__jupiter"
                 src="./images/jupiter.png"
-                alt="Jupiter" />
+                alt="Jupiter"
+                loading="lazy"
+                decoding="async" />
               <img
                 class="dab__gato"
                 src="./images/cat.png"
                 alt="Gato astronauta"
+                loading="lazy"
+                decoding="async"
             /></a>
           </div>
           <div class="coordenadas">
             <div class="coordenadas__inner">
-              <img src="./images/coordinateBlack.png" alt="Coordenadas" />
+              <img
+                src="./images/coordinateBlack.png"
+                alt="Coordenadas"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
           <!-- Grupo: Vinho -->
@@ -180,21 +208,42 @@
             <a href="#" target="_blank">
               <div class="vinho__woman">
                 <div class="vinho__woman-inner">
-                  <img src="./images/woman.png" alt="Mulher a beber vinho" />
+                  <img
+                    src="./images/woman.png"
+                    alt="Mulher a beber vinho"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div class="vinho__earth">
                 <div class="vinho__earth-inner">
-                  <img src="./images/earth.png" alt="" />
+                  <img
+                    src="./images/earth.png"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div class="vinho__saturno">
                 <div class="vinho__saturno-inner">
-                  <img src="./images/saturno.png" alt="" />
+                  <img
+                    src="./images/saturno.png"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </a>
-            <img class="vinho__star" src="./images/starBlack.png" alt="" />
+            <img
+              class="vinho__star"
+              src="./images/starBlack.png"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div class="galeria-group">
             <!-- TODO: substituir "#" pelo link final do projeto" -->
@@ -203,11 +252,18 @@
                 class="galeria-group__frame"
                 src="./images/gallery.png"
                 alt="Galeria"
+                loading="lazy"
+                decoding="async"
               />
             </a>
             <div class="galeria-group__paper-star">
               <div class="galeria-group__paper-star-inner">
-                <img src="./images/paperStar.png" alt="" />
+                <img
+                  src="./images/paperStar.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
@@ -217,12 +273,16 @@
               alt="Black Hole"
               class="black-hole-img"
               onclick="toggleBlackHoleMessage()"
+              loading="lazy"
+              decoding="async"
             />
             <div class="black-hole-message">
               <img
                 class="black-hole-message__arrow"
                 src="./images/arrowDoodleBlack.png"
                 alt=""
+                loading="lazy"
+                decoding="async"
               />
               <p class="black-hole-message__text">
                 This is a black hole. Don't get lost here!
@@ -236,10 +296,21 @@
             >
               <div class="foody__disco">
                 <div class="foody__disco-inner">
-                  <img src="./images/disco.png" alt="Foody" />
+                  <img
+                    src="./images/disco.png"
+                    alt="Foody"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
-              <img class="foody__fruta" src="./images/fruit.png" alt="" />
+              <img
+                class="foody__fruta"
+                src="./images/fruit.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           </div>
           <div class="complex-jupiter">
@@ -247,16 +318,22 @@
               class="complex-jupiter__bg"
               src="./images/complexJupiterBG.png"
               alt=""
+              loading="lazy"
+              decoding="async"
             />
             <img
               class="complex-jupiter__spark"
               src="./images/spark.png"
               alt=""
+              loading="lazy"
+              decoding="async"
             />
             <img
               class="complex-jupiter__planet"
               src="./images/bluePlanet.png"
               alt="Jupiter — visualização interativa"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <a
@@ -264,7 +341,12 @@
             href="https://maternaremequilibrio.pt/"
             target="_blank"
           >
-            <img src="./images/Maternar2.png" alt="Maternar" />
+            <img
+              src="./images/Maternar2.png"
+              alt="Maternar"
+              loading="lazy"
+              decoding="async"
+            />
           </a>
           <div class="planet-porta">
             <svg
@@ -287,17 +369,23 @@
               class="planet-porta__planet"
               src="./images/Planeta colorido.png"
               alt=""
+              loading="lazy"
+              decoding="async"
             />
             <div class="planet-porta__door">
               <img
                 class="planet-porta__door-img planet-porta__door-img--closed"
                 src="./images/PortaFechada.png"
                 alt="Porta fechada"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 class="planet-porta__door-img planet-porta__door-img--open"
                 src="./images/PortaAberta.png"
                 alt="Porta aberta"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -307,11 +395,15 @@
                 class="envelope__img envelope__img--closed"
                 src="./images/Envelope fechado.png"
                 alt="Envelope fechado"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 class="envelope__img envelope__img--open"
                 src="./images/Envelope aberto.png"
                 alt="Envelope aberto"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="cv-message">
@@ -319,6 +411,8 @@
                 class="cv-message__arrow"
                 src="./images/arrowDoodleBlack.png"
                 alt=""
+                loading="lazy"
+                decoding="async"
               />
               <a
                 class="cv-message__link"
@@ -334,6 +428,8 @@
               class="fly-me__text"
               src="./images/Fly me to.png"
               alt="Fly me to the moon"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -343,6 +439,8 @@
               src="./images/megafone.png"
               alt="Contacto"
               onclick="toggleContactMenu()"
+              loading="lazy"
+              decoding="async"
             />
             <nav class="contacto__socials z-3" aria-label="Redes sociais">
               <a
@@ -405,7 +503,12 @@
           </div>
           <div class="rocket">
             <div class="rocket__inner">
-              <img src="./images/rocket.png" alt="" />
+              <img
+                src="./images/rocket.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>

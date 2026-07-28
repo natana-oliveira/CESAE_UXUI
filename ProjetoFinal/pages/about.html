@@ -6,12 +6,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Pedido de fontes unificado num único link (era 2 pedidos separados)
+         e sem a família Lato, que era carregada com 10 variações de peso/
+         estilo mas nunca era referenciada em nenhum font-family do CSS —
+         só Space Grotesk e Nothing You Could Do são usadas. Menos um
+         round-trip HTTP por página e menos dados transferidos, sem
+         qualquer alteração visual. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Nothing+You+Could+Do&display=swap"
       rel="stylesheet"
     />
 
@@ -134,15 +136,20 @@
               class="about-me__photo-crop pos-absolute inset-0 pointer overflow-hidden"
               onclick="toggleAboutMeImage()"
             >
+              <!-- Retrato visível já no 1º ecrã da página About — sem
+                   lazy; ambas as imagens do crossfade carregam já, só
+                   uma é revelada de cada vez -->
               <img
                 class="about-me__photo-img pos-absolute inset-0 object-fit-cover about-me__photo-img--helmet"
                 src="../images/NatanaOAs.png"
                 alt="Illustrated portrait of Natana Oliveira as an astronaut, helmet on"
+                decoding="async"
               />
               <img
                 class="about-me__photo-img pos-absolute inset-0 object-fit-cover about-me__photo-img--no-helmet"
                 src="../images/NatanaO.png"
                 alt="Illustrated portrait of Natana Oliveira as an astronaut, helmet off"
+                decoding="async"
               />
             </div>
             <div
@@ -153,6 +160,7 @@
                 class="about-me__message-arrow"
                 src="../images/arrowDoodleBlack.png"
                 alt=""
+                decoding="async"
               />
               <p class="about-me__message-text text-center">Click!</p>
             </div>
@@ -166,12 +174,14 @@
             class="glass-card tech-card tc-ux d-flex flex-column pos-relative overflow-hidden"
           >
             <div class="tc-icon">☆</div>
-            <h3>UX Design</h3>
-            <p>✦ User Research & Usability Tests</p>
-            <p>✦ Interviews & Surveys</p>
-            <p>✦ Personas & User flows</p>
-            <p>✦ Information Architecture</p>
-            <p>✦ Accessibility & Usability</p>
+            <div class="tech-card-content">
+              <h3>UX Design</h3>
+              <p>✦ User Research & Usability Tests</p>
+              <p>✦ Interviews & Surveys</p>
+              <p>✦ Personas & User flows</p>
+              <p>✦ Information Architecture</p>
+              <p>✦ Accessibility & Usability</p>
+            </div>
             <div class="tc-progress overflow-hidden">
               <div class="tc-bar" style="--w: 100%"></div>
             </div>
@@ -180,12 +190,15 @@
             class="glass-card tech-card tc-ui d-flex flex-column pos-relative overflow-hidden"
           >
             <div class="tc-icon">☆</div>
-            <h3>UI Design</h3>
-            <p>✦ Wireframing & Prototyping</p>
-            <p>✦ Design System</p>
-            <p>✦ Interaction Design</p>
-            <p>✦ Responsive Design</p>
-            <p>✦ Implementation with developer(s)</p>
+            <div class="tech-card-content">
+              <h3>UI Design</h3>
+              <p>✦ Wireframing & Prototyping</p>
+              <p>✦ Design System</p>
+              <p>✦ Interaction Design</p>
+              <p>✦ Responsive Design</p>
+              <p>✦ Implementation with developer(s)</p>
+            </div>
+
             <div class="tc-progress overflow-hidden">
               <div class="tc-bar" style="--w: 100%"></div>
             </div>
@@ -194,24 +207,32 @@
             class="glass-card tech-card tc-motion d-flex flex-column pos-relative overflow-hidden"
           >
             <div class="tc-icon">☆</div>
-            <h3>Motion & Interaction Design</h3>
-            <p>✦ Figma Motion</p>
-            <p>✦ Lottie Animations</p>
-            <p>✦ After Effects</p>
+            <div class="tech-card-content">
+              <h3>Motion & Interaction Design</h3>
+              <p>✦ Figma Motion</p>
+              <p>✦ Lottie Animations</p>
+              <p>✦ After Effects</p>
+            </div>
+
             <div class="tc-progress overflow-hidden">
-              <div class="tc-bar" style="--w: 45%"></div>
+              <div class="tc-bar" style="--w: 65%"></div>
             </div>
           </div>
           <div
             class="glass-card tech-card tc-dev d-flex flex-column pos-relative overflow-hidden"
           >
             <div class="tc-icon">☆</div>
-            <h3>Front-end Development</h3>
-            <p>✦ HTML, CSS, JavaScript</p>
-            <p>✦ CSS Frameworks (Bootstrap)</p>
-            <p>✦ Version Control (Git/GitHub)</p>
+            <div class="tech-card-content">
+              <h3>Front-end Development</h3>
+              <p>✦ HTML/CSS & JavaScript</p>
+              <p>✦ CSS Frameworks (Bootstrap)</p>
+              <p>✦ Version Control (Git)</p>
+              <p>✦ Browser Compatibility</p>
+              <p>✦ UI Component Libraries</p>
+            </div>
+
             <div class="tc-progress overflow-hidden">
-              <div class="tc-bar" style="--w: 75%"></div>
+              <div class="tc-bar" style="--w: 85%"></div>
             </div>
           </div>
         </div>
@@ -225,7 +246,7 @@
             ><span class="dot">✦</span>
             <span class="neon-word neon-blue">MOTION</span
             ><span class="dot">✦</span>
-            <span class="neon-word neon-green">EXPERIENCE</span
+            <span class="neon-word neon-yellow">EXPERIENCE</span
             ><span class="dot">✦</span>
             <span class="neon-word neon-purple">CODING</span
             ><span class="dot">✦</span>
@@ -233,7 +254,7 @@
             ><span class="dot">✦</span>
             <span class="neon-word neon-blue">THINKING</span
             ><span class="dot">✦</span>
-            <span class="neon-word neon-green">CREATIVITY</span
+            <span class="neon-word neon-yellow">CREATIVITY</span
             ><span class="dot">✦</span>
             <div class="marquee-content__group" aria-hidden="true">
               <span class="neon-word neon-purple">DESIGN</span>
@@ -242,7 +263,7 @@
               ><span class="dot">✦</span>
               <span class="neon-word neon-blue">MOTION</span
               ><span class="dot">✦</span>
-              <span class="neon-word neon-green">EXPERIENCE</span
+              <span class="neon-word neon-yellow">EXPERIENCE</span
               ><span class="dot">✦</span>
               <span class="neon-word neon-purple">CODING</span
               ><span class="dot">✦</span>
@@ -250,7 +271,7 @@
               ><span class="dot">✦</span>
               <span class="neon-word neon-blue">THINKING</span
               ><span class="dot">✦</span>
-              <span class="neon-word neon-green">CREATIVITY</span
+              <span class="neon-word neon-yellow">CREATIVITY</span
               ><span class="dot">✦</span>
             </div>
           </div>

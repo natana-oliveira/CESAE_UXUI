@@ -1,4 +1,3 @@
-/* ---------- Contact  ---------- */
 .contact {
   padding-bottom: calc(clamp(8rem, 12.5vw, 11.25rem) * 169 / 180 + 2rem);
   margin-bottom: 0;
@@ -11,17 +10,17 @@
   margin-bottom: 0;
 }
 .contact__card {
-  gap: 2.5rem;
+  gap: var(--space-13); /* era "2.5rem" (40px) — mesmo valor, agora token */
 }
 .contact .contact__card {
   width: 100%;
   max-width: clamp(50rem, 65vw, 50rem);
 }
 .contact__intro {
-  gap: 0.625rem; /* 10px no Figma*/
+  gap: var(--space-3); /* 10px no Figma — mesmo valor, agora token */
 }
 .contact__email {
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 .contact__email a {
   display: inline;
@@ -35,19 +34,19 @@
 }
 
 .contact__social-block {
-  gap: 1.5rem;
+  gap: var(--space-10); /* era "1.5rem" (24px) — mesmo valor, agora token */
 }
 .contact-page__socials {
-  gap: 3.125rem; /* 50px, igual à Homepage */
+  gap: var(--space-14); /* 50px, igual à Homepage — agora token */
   width: 100%;
-  color: var(--muted);
+  color: var(--overlay-white-50);
 }
 .contact-page__icon {
   flex-shrink: 0;
-  width: 3rem; /* 48px, mesmo tamanho */
+  width: 3rem;
   aspect-ratio: 1;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: var(--card-background);
+  border: 1px solid var(--overlay-white-15);
   transition: color var(--t-fast);
 }
 .contact-page__icon svg {
@@ -117,8 +116,8 @@
   background:
     radial-gradient(
       circle at 35% 35%,
-      rgba(255, 255, 255, 0.95),
-      rgba(255, 255, 255, 0.15) 15%,
+      var(--overlay-white-95),
+      var(--overlay-white-15) 15%,
       transparent 20%
     ),
     radial-gradient(
@@ -132,7 +131,7 @@
     0 0 30px rgba(89, 243, 255, 0.7),
     0 0 80px rgba(31, 123, 255, 0.35),
     0 0 140px rgba(121, 24, 255, 0.2),
-    inset 0 0 30px rgba(255, 255, 255, 0.95);
+    inset 0 0 30px var(--overlay-white-95);
 }
 @keyframes pulseCore {
   0%,
@@ -158,8 +157,8 @@ body.light .orb-core {
   background:
     radial-gradient(
       circle at 35% 35%,
-      rgba(255, 255, 255, 0.95),
-      rgba(255, 255, 255, 0.15) 15%,
+      var(--overlay-white-95),
+      var(--overlay-white-15) 15%,
       transparent 20%
     ),
     radial-gradient(
@@ -173,7 +172,7 @@ body.light .orb-core {
 
 @media screen and (max-width: 1024px) {
   .contact-page__socials {
-    gap: 1rem;
+    gap: var(--space-9); /* era "1rem" (16px) — mesmo valor, agora token */
   }
   .contact-page__icon {
     width: 2.5rem;
