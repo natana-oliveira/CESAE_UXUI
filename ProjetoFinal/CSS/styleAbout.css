@@ -86,7 +86,6 @@ body.page-about #navbar {
 }
 .skills h3 {
   font-size: 30px;
-  font-family: var(--font-family-detail);
   margin-top: 0;
 }
 .skills > .section-heading {

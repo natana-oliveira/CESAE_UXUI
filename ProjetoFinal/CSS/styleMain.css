@@ -14,8 +14,6 @@
 .collage > * {
   position: absolute;
 }
-/* Garante que um painel aberto (mensagem/menu) fica sempre por cima de
-   qualquer peça vizinha da colagem, independentemente da ordem no HTML. */
 .black-hole.is-open,
 .envelope.is-open,
 .contacto.is-open {

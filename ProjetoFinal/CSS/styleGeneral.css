@@ -315,11 +315,14 @@ nav#navbar.in {
   cursor: pointer;
   transition: color var(--t-fast);
 }
-body.light #icon-moon,
-#icon-sun {
+/* ALTERADO: ícones do Theme Toggle invertidos a pedido do utilizador —
+   agora é o sol que aparece em Dark Mode e a lua que aparece em Light
+   Mode (antes era o oposto: lua no Dark, sol no Light). */
+body.light #icon-sun,
+#icon-moon {
   display: none;
 }
-body.light #icon-sun {
+body.light #icon-moon {
   display: block;
 }
 #theme-toggle svg {

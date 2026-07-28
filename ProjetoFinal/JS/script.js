@@ -2,41 +2,12 @@ let body = document.querySelector("body");
 let themeBtn = document.getElementById("theme-toggle");
 
 /* ---------- Modo Noturno ---------- */
-const LIGHT_MODE_IMAGES = {
-  "frameCesaeBlack.svg": "frameCesaeLight.svg",
-  "coordinateBlack.png": "coordinateLight.png",
-  "starsBlack.png": "starsLight.png",
-  "disco.png": "discoLight.png",
-  "gallery.png": "galleryLight.png",
-  "complexJupiterBG.png": "complexJupiterBGLight.png",
-  "arrowDoodleBlack.png": "arrowDoodleLight.png",
-  "spark.png": "sparkLight.png",
-  "starBlack.png": "starLight.png",
-  "rocket.png": "rocketLight.png",
-  "earth.png": "earthLight.png",
-  "blackHole.png": "blackHoleLight.png",
-};
-const DARK_MODE_IMAGES = Object.fromEntries(
-  Object.entries(LIGHT_MODE_IMAGES).map(([dark, light]) => [light, dark]),
-);
-
-function swapThemeImages(isLight) {
-  const map = isLight ? LIGHT_MODE_IMAGES : DARK_MODE_IMAGES;
-  document.querySelectorAll("img").forEach((img) => {
-    const src = img.getAttribute("src");
-    const filename = src && src.split("/").pop();
-    if (filename && map[filename]) {
-      img.setAttribute("src", src.replace(filename, map[filename]));
-    }
-  });
-}
-
+/* Lógica de tema (mapa de imagens, applyTheme, persistência) vive em theme.js, partilhado por todas as páginas. Aqui só ligamos o clique. */
 themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-  swapThemeImages(document.body.classList.contains("light"));
+  const isLight = !document.body.classList.contains("light");
+  localStorage.setItem(THEME_STORAGE_KEY, isLight ? "light" : "dark");
+  applyTheme(isLight);
 });
-
-swapThemeImages(document.body.classList.contains("light"));
 
 /* ---------- Menu mobile (hamburger) ---------- */
 const navToggle = document.getElementById("nav-toggle");
